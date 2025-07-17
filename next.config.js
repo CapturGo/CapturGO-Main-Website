@@ -5,12 +5,20 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/',
+        destination: '/static/home.html',
+      },
+      {
+        source: '/waitlist',
+        destination: '/static/waitlist.html',
+      },
+      {
         source: '/page.html',
-        destination: '/',
+        destination: '/static/home.html',
       },
       {
         source: '/waitlist/page.html',
-        destination: '/waitlist',
+        destination: '/static/waitlist.html',
       },
     ];
   },
