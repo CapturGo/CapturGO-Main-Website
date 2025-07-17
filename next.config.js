@@ -6,11 +6,11 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/page.html',
+        destination: '/home/index.html',
       },
       {
         source: '/waitlist',
-        destination: '/waitlist/page.html',
+        destination: '/waitlist/index.html',
       },
     ];
   },
