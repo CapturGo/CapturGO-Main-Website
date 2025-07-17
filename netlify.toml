@@ -1,0 +1,13 @@
+[build]
+  publish = "/"
+  command = ""
+
+[[redirects]]
+  from = "/waitlist"
+  to = "/waitlist/page.html"
+  status = 200
+
+[[redirects]]
+  from = "/"
+  to = "/page.html"
+  status = 200
