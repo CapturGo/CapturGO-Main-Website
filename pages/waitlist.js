@@ -1,9 +1,14 @@
-import { useEffect } from 'react';
+import { getHtmlContent } from '../components/HtmlContent';
 
-export default function Waitlist() {
-  useEffect(() => {
-    window.location.href = '/waitlist/page.html';
-  }, []);
+export default function Waitlist({ htmlContent }) {
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+}
 
-  return null;
+export async function getStaticProps() {
+  const htmlContent = getHtmlContent('waitlist/page.html');
+  return {
+    props: {
+      htmlContent,
+    },
+  };
 }

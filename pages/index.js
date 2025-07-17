@@ -1,9 +1,14 @@
-import { useEffect } from 'react';
+import { getHtmlContent } from '../components/HtmlContent';
 
-export default function Home() {
-  useEffect(() => {
-    window.location.href = '/page.html';
-  }, []);
+export default function Home({ htmlContent }) {
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+}
 
-  return null;
+export async function getStaticProps() {
+  const htmlContent = getHtmlContent('page.html');
+  return {
+    props: {
+      htmlContent,
+    },
+  };
 }
