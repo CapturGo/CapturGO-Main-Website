@@ -2,20 +2,19 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  async redirects() {
+  async rewrites() {
     return [
       {
         source: '/page.html',
         destination: '/',
-        permanent: true,
       },
       {
         source: '/waitlist/page.html',
         destination: '/waitlist',
-        permanent: true,
       },
     ];
   },
+  trailingSlash: false,
 };
 
 module.exports = nextConfig;

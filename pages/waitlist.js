@@ -58,3 +58,13 @@ export async function getStaticProps() {
     revalidate: 1, // Enable ISR
   };
 }
+
+// Ensure this page is served at the root
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: {} }
+    ],
+    fallback: false
+  };
+}
