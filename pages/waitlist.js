@@ -55,5 +55,6 @@ export async function getStaticProps() {
     props: {
       content,
     },
+    revalidate: 1, // Enable ISR
   };
 }
