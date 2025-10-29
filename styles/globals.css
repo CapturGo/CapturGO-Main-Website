@@ -47,7 +47,7 @@ body {
 }
 
 .animate-scroll-infinite {
-  animation: scroll-infinite 30s linear infinite;
+  animation: scroll-infinite 39s linear infinite;
   display: flex;
   width: 200%;
 }
