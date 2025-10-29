@@ -4,8 +4,16 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Favicon */}
+        <link rel="icon" href="/images/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico" />
+        
+        {/* Preconnect for performance */}
         <link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin="anonymous" />
-        <script async src="https://events.framer.com/script?v=2" data-fid="ff2aee2c258bbbc8fd4a8334d9b76a0b47bfb5bdc8cc1c1229f7c149b4fbb035" data-no-nt></script>
+        <link href="https://www.google-analytics.com" rel="preconnect" crossOrigin="anonymous" />
+        
       </Head>
       <body>
         <Main />
