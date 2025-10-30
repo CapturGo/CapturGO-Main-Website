@@ -11,9 +11,14 @@ export default async function handler(req, res) {
   const { token, type, error, error_description, code } = req.query;
 
   // Debug logging (remove in production)
-  if (process.env.NODE_ENV === 'development') {
-    console.log('Auth callback received:', { token: !!token, type, error, code: !!code });
-  }
+  console.log('Auth callback received:', { 
+    token: token ? token.substring(0, 20) + '...' : null, 
+    type, 
+    error, 
+    error_description,
+    code: code ? code.substring(0, 20) + '...' : null,
+    fullQuery: req.query 
+  });
 
   if (error) {
     return res.redirect(`/?error=${error}&description=${error_description}`);

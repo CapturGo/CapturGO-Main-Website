@@ -1,28 +1,22 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { supabase } from '@/lib/supabaseClient';
+import { supabase } from '../lib/supabaseClient';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Image from 'next/image';
 
-interface SignInModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSwitchToSignUp: () => void;
-}
-
-export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }: SignInModalProps) {
+export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const recaptchaRef = useRef(null);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [resetEmail, setResetEmail] = useState('');
   const [resetMessage, setResetMessage] = useState('');
 
-  const handlePasswordReset = async (e: React.FormEvent) => {
+  const handlePasswordReset = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
@@ -30,7 +24,7 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }: SignI
 
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-        redirectTo: `https://community.capturgo.com/reset-password`,
+        redirectTo: `${window.location.origin}/api/auth/callback`,
       });
 
       if (error) {
@@ -51,7 +45,7 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }: SignI
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
