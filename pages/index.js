@@ -480,7 +480,7 @@ export default function Home() {
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-2 items-center">
             
             {/* Left Content */}
-            <div className="space-y-8 scroll-slide-left">
+            <div className="space-y-8 scroll-slide-left flex justify-center lg:justify-start">
               <div className="bg-gray-800/30 backdrop-blur-sm rounded-3xl border border-gray-700/50 p-6 w-80 h-[640px] flex flex-col justify-start pt-12 space-y-8">
                 <div>
                   <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">

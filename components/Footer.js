@@ -47,6 +47,9 @@ export default function Footer() {
               <Link href="/#features" className="block text-gray-400 hover:text-white transition-colors">
                 Features
               </Link>
+              <Link href="/#leaderboard" className="block text-gray-400 hover:text-white transition-colors">
+                Leaderboard
+              </Link>
               <Link href="/#faq" className="block text-gray-400 hover:text-white transition-colors">
                 FAQ's
               </Link>
