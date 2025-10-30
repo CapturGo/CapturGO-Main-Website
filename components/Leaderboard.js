@@ -50,14 +50,14 @@ export default function Leaderboard() {
 
   return (
     <div className="overflow-hidden bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-lg">
-      <div className="px-6 py-4 border-b border-gray-800">
-        <h2 className="text-xl font-semibold text-white">Top 50 Token Holders</h2>
+      <div className="px-4 sm:px-6 py-4 border-b border-gray-800">
+        <h2 className="text-lg sm:text-xl font-semibold text-white">Top 50 Token Holders</h2>
       </div>
       
-      {/* Header Row */}
-      <div className="px-6 py-3 bg-gray-800/50 border-b border-gray-700 grid grid-cols-4 gap-0 text-sm font-medium text-gray-300">
-        <div className="w-8">Rank</div>
-        <div className="pl-2">Username</div>
+      {/* Header Row - Hidden on mobile */}
+      <div className="hidden sm:grid px-6 py-3 bg-gray-800/50 border-b border-gray-700 grid-cols-4 gap-4 text-sm font-medium text-gray-300">
+        <div>Rank</div>
+        <div>Username</div>
         <div className="text-right">Token Balance</div>
         <div className="text-right">Rewards to Earn</div>
       </div>
@@ -70,34 +70,69 @@ export default function Leaderboard() {
           return (
             <div
               key={profile.username}
-              className="px-6 py-4 grid grid-cols-4 gap-0 items-center hover:bg-gray-800/30 transition-colors duration-200"
+              className="px-4 sm:px-6 py-4 hover:bg-gray-800/30 transition-colors duration-200"
             >
-              <div className="w-8">
-                <span className={`
-                  text-sm font-medium
-                  ${index === 0 ? 'text-yellow-500' : ''}
-                  ${index === 1 ? 'text-gray-300' : ''}
-                  ${index === 2 ? 'text-amber-600' : ''}
-                  ${index > 2 ? 'text-gray-500' : ''}
-                `}>
-                  #{position}
-                </span>
+              {/* Mobile Layout */}
+              <div className="sm:hidden">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center space-x-3">
+                    <span className={`
+                      text-sm font-bold px-2 py-1 rounded
+                      ${index === 0 ? 'text-yellow-500 bg-yellow-500/10' : ''}
+                      ${index === 1 ? 'text-gray-300 bg-gray-300/10' : ''}
+                      ${index === 2 ? 'text-amber-600 bg-amber-600/10' : ''}
+                      ${index > 2 ? 'text-gray-500 bg-gray-500/10' : ''}
+                    `}>
+                      #{position}
+                    </span>
+                    <p className="font-medium text-white text-base">{profile.username}</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">Token Balance</p>
+                    <p className="text-sm font-medium text-indigo-400">
+                      {profile.token_balance.toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs text-gray-400 mb-1">Rewards</p>
+                    <p className="text-sm font-medium text-gray-400">
+                      TBA
+                    </p>
+                  </div>
+                </div>
               </div>
-              
-              <div className="pl-2">
-                <p className="font-medium text-white truncate">{profile.username}</p>
-              </div>
-              
-              <div className="text-right">
-                <p className="text-sm font-medium text-indigo-400">
-                  {profile.token_balance.toLocaleString()}
-                </p>
-              </div>
-              
-              <div className="text-right">
-                <p className="text-sm font-medium text-gray-400">
-                  To be announced
-                </p>
+
+              {/* Desktop Layout */}
+              <div className="hidden sm:grid grid-cols-4 gap-4 items-center">
+                <div>
+                  <span className={`
+                    text-sm font-medium
+                    ${index === 0 ? 'text-yellow-500' : ''}
+                    ${index === 1 ? 'text-gray-300' : ''}
+                    ${index === 2 ? 'text-amber-600' : ''}
+                    ${index > 2 ? 'text-gray-500' : ''}
+                  `}>
+                    #{position}
+                  </span>
+                </div>
+                
+                <div>
+                  <p className="font-medium text-white truncate">{profile.username}</p>
+                </div>
+                
+                <div className="text-right">
+                  <p className="text-sm font-medium text-indigo-400">
+                    {profile.token_balance.toLocaleString()}
+                  </p>
+                </div>
+                
+                <div className="text-right">
+                  <p className="text-sm font-medium text-gray-400">
+                    To be announced
+                  </p>
+                </div>
               </div>
             </div>
           );
