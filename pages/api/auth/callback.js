@@ -10,8 +10,13 @@ export default async function handler(req, res) {
 
   const { token, type, error, error_description, code } = req.query;
 
+  // Debug logging (remove in production)
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Auth callback received:', { token: !!token, type, error, code: !!code });
+  }
+
   if (error) {
-    return res.redirect(`/?error=${error}`);
+    return res.redirect(`/?error=${error}&description=${error_description}`);
   }
 
   // Handle password recovery directly
@@ -41,5 +46,10 @@ export default async function handler(req, res) {
     }
   }
 
-  return res.redirect('/');
+  // No valid parameters received
+  if (process.env.NODE_ENV === 'development') {
+    console.log('No valid auth parameters, redirecting to home');
+  }
+  
+  return res.redirect('/?error=no_auth_params');
 }
