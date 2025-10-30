@@ -23,12 +23,13 @@ export default function Navigation() {
               <Image 
                 src="/images/logo.svg" 
                 alt="capturGO Logo" 
-                width={96} 
-                height={32}
+                width={192} 
+                height={64}
                 className="h-8"
                 style={{ width: 'auto' }}
                 priority
                 quality={100}
+                sizes="(max-width: 768px) 192px, 96px"
               />
             </Link>
           </div>

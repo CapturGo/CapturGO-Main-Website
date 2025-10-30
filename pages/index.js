@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import Navigation from '../components/Navigation';
@@ -245,10 +246,15 @@ export default function Home() {
                 <span className="animate-fade-in-up">Navigate, Share, and Earn with</span>
               </h1>
               <div className="animate-fade-in-up animation-delay-200">
-                <img 
+                <Image 
                   src="/images/capturGO.svg" 
                   alt="capturGO" 
+                  width={448}
+                  height={112}
                   className="h-8 sm:h-10 lg:h-12 xl:h-14 w-auto mx-auto"
+                  priority
+                  quality={100}
+                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, (max-width: 1280px) 384px, 448px"
                 />
               </div>
             </div>
