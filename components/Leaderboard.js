@@ -52,6 +52,11 @@ export default function Leaderboard() {
     <div className="overflow-hidden bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-lg">
       <div className="px-4 sm:px-6 py-4 border-b border-gray-800">
         <h2 className="text-lg sm:text-xl font-semibold text-white">Top 50 Token Holders</h2>
+        <div className="mt-3 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+          <p className="text-xs sm:text-sm text-yellow-200 leading-relaxed">
+            <strong>⚠️ Disclaimer:</strong> No official token has been released. 
+          </p>
+        </div>
       </div>
       
       {/* Header Row - Hidden on mobile */}

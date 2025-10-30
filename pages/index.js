@@ -296,28 +296,28 @@ export default function Home() {
           <div className="mt-16 sm:mt-20">
 
             {/* Stats Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto px-6 sm:px-8">
-              <div className="flex flex-col justify-center items-center px-4 sm:px-6 py-6 sm:py-8 bg-gray-800/50 rounded-2xl border border-gray-700 h-28 sm:h-32">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 max-w-sm sm:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col justify-center items-center px-2 sm:px-6 py-4 sm:py-8 bg-gray-800/50 rounded-xl sm:rounded-2xl border border-gray-700 h-24 sm:h-32">
                 <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">
-                    <AnimatedCounter end={21004} suffix="+" />
+                  <div className="text-lg sm:text-2xl font-bold text-white mb-1 sm:mb-2">
+                    <AnimatedCounter end={21000} suffix="+" />
                   </div>
                   <div className="text-xs sm:text-sm text-gray-400 leading-tight">Daily Traffic KM</div>
                 </div>
               </div>
 
-              <div className="flex flex-col justify-center items-center px-4 sm:px-6 py-6 sm:py-8 bg-gray-800/50 rounded-2xl border border-gray-700 h-28 sm:h-32">
+              <div className="flex flex-col justify-center items-center px-2 sm:px-6 py-4 sm:py-8 bg-gray-800/50 rounded-xl sm:rounded-2xl border border-gray-700 h-24 sm:h-32">
                 <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">
+                  <div className="text-lg sm:text-2xl font-bold text-white mb-1 sm:mb-2">
                     <AnimatedCounter end={500} suffix="+" />
                   </div>
                   <div className="text-xs sm:text-sm text-gray-400 leading-tight">Active Users</div>
                 </div>
               </div>
 
-              <div className="flex flex-col justify-center items-center px-4 sm:px-6 py-6 sm:py-8 bg-gray-800/50 rounded-2xl border border-gray-700 h-28 sm:h-32 sm:col-span-2 lg:col-span-1">
+              <div className="flex flex-col justify-center items-center px-2 sm:px-6 py-4 sm:py-8 bg-gray-800/50 rounded-xl sm:rounded-2xl border border-gray-700 h-24 sm:h-32 sm:col-span-2 lg:col-span-1">
                 <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">
+                  <div className="text-lg sm:text-2xl font-bold text-white mb-1 sm:mb-2">
                     <AnimatedCounter end={180} suffix="+" />
                   </div>
                   <div className="text-xs sm:text-sm text-gray-400 leading-tight">Available Countries</div>
@@ -724,7 +724,12 @@ export default function Home() {
           <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
             Navigate with real-time, community-driven directions, report traffic updates, share anonymized data, and earn rewards for every contribution with capturGO.
           </p>
-          <div className="inline-flex items-center px-6 py-3 bg-white rounded-2xl">
+          <a 
+            href="https://testflight.apple.com/join/nCcrMvFA" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-6 py-3 bg-white rounded-2xl hover:bg-gray-50 transition-colors"
+          >
             <div className="w-8 h-8 bg-[#935EFF] rounded-lg flex items-center justify-center mr-3">
               <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -734,7 +739,7 @@ export default function Home() {
               <div className="text-xs text-gray-500">Download Now</div>
               <div className="text-sm font-semibold text-gray-900">App Store</div>
             </div>
-          </div>
+          </a>
         </div>
       </section>
 

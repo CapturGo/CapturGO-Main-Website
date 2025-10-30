@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
         <Analytics />
-        <SpeedInsights />
+        <SpeedInsights debug={false} />
     </AuthProvider>
   );
 }

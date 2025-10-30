@@ -99,25 +99,25 @@ export default function BrevoFormEmbed() {
               <p style="margin:0;">Subscribe to get the latest updates on capturGO features, launches, and community news.</p>
             </div>
           </div>
-          <div style="max-width:448px; margin:0 auto;">
-            <div style="display:flex; gap:12px; align-items:center;">
-              <div class="sib-input sib-form-block" style="flex:1;">
+          <div style="max-width:448px; margin:0 auto; padding:0 16px;">
+            <div style="display:flex; gap:8px; align-items:center;">
+              <div class="sib-input sib-form-block" style="flex:1; min-width:0;">
                 <input
                   type="email"
                   id="EMAIL"
                   name="EMAIL"
                   placeholder="Enter your email"
                   required
-                  style="width:100%; padding:12px 16px; background:#1F2937; color:#fff; border-radius:8px; border:1px solid #374151; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:16px; outline:none; transition:all 0.2s;"
+                  style="width:100%; padding:12px 16px; background:#1F2937; color:#fff; border-radius:8px; border:1px solid #374151; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:16px; outline:none; transition:all 0.2s; box-sizing:border-box;"
                   onfocus="this.style.borderColor='#935EFF'; this.style.boxShadow='0 0 0 2px rgba(147, 94, 255, 0.2)';"
                   onblur="this.style.borderColor='#374151'; this.style.boxShadow='none';"
                 />
               </div>
-              <div class="sib-form-block">
+              <div class="sib-form-block" style="flex-shrink:0;">
                 <button
                   type="submit"
                   class="sib-form-block__button"
-                  style="padding:12px 24px; border:none; border-radius:8px; background-color:#935EFF; color:#fff; font-weight:600; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:16px; cursor:pointer; transition:all 0.2s;"
+                  style="padding:12px 16px; border:none; border-radius:8px; background-color:#935EFF; color:#fff; font-weight:600; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:14px; cursor:pointer; transition:all 0.2s; white-space:nowrap;"
                   onmouseover="this.style.backgroundColor='#7B4FE6';"
                   onmouseout="this.style.backgroundColor='#935EFF';"
                 >
