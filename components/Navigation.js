@@ -1,15 +1,21 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import SignInModal from './SignInModal';
+import SignUpModal from './SignUpModal';
 
 export default function Navigation() {
   const router = useRouter();
+  const { user, loading } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="hover:opacity-80 transition-opacity">
@@ -39,10 +45,10 @@ export default function Navigation() {
                 Features
               </Link>
               <Link 
-                href="/#community" 
+                href="/#leaderboard" 
                 className="text-gray-300 hover:text-white transition-colors"
               >
-                Community
+                Leaderboard
               </Link>
               <Link 
                 href="/#faq" 
@@ -53,16 +59,33 @@ export default function Navigation() {
             </div>
           </div>
           
-          {/* Get Started Button - Desktop */}
-          <div className="hidden md:block">
-            <a 
-              href="https://community.capturgo.com/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="animate-border-loop text-white font-semibold hover:bg-white/10 transition-all"
-            >
-              Get Started
-            </a>
+          {/* Sign In / Sign Up Buttons or Profile - Desktop */}
+          <div className="hidden md:flex items-center space-x-4">
+            {loading ? (
+              <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-white"></div>
+            ) : user ? (
+              <Link
+                href="/profile"
+                className="min-w-[80px] px-6 py-2 bg-captur-purple text-white hover:bg-captur-purple/80 font-medium rounded-2xl transition-all duration-300 whitespace-nowrap text-center"
+              >
+                Profile
+              </Link>
+            ) : (
+              <>
+                <button
+                  onClick={() => setShowSignIn(true)}
+                  className="min-w-[80px] px-6 py-2 border border-gray-400 text-white hover:bg-gray-800 font-medium rounded-2xl transition-all duration-300 whitespace-nowrap"
+                >
+                  Sign In
+                </button>
+                <button
+                  onClick={() => setShowSignUp(true)}
+                  className="min-w-[80px] px-6 py-2 bg-captur-purple text-white hover:bg-captur-purple/80 font-medium rounded-2xl transition-all duration-300 whitespace-nowrap"
+                >
+                  Sign Up
+                </button>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button - Right side */}
@@ -99,11 +122,11 @@ export default function Navigation() {
                 Features
               </Link>
               <Link 
-                href="/#community" 
+                href="/#leaderboard" 
                 className="text-gray-300 hover:text-white transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Community
+                Leaderboard
               </Link>
               <Link 
                 href="/#faq" 
@@ -112,19 +135,58 @@ export default function Navigation() {
               >
                 FAQs
               </Link>
-              <a 
-                href="https://community.capturgo.com/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="animate-border-loop text-white hover:bg-white/10 transition-colors text-center font-semibold inline-block"
-                onClick={() => setIsOpen(false)}
-              >
-                Get Started
-              </a>
+              {user ? (
+                <Link
+                  href="/profile"
+                  className="w-full px-6 py-2 bg-captur-purple text-white hover:bg-captur-purple/80 font-medium rounded-2xl transition-all duration-300 text-center block"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Profile
+                </Link>
+              ) : (
+                <>
+                  <button
+                    onClick={() => {
+                      setShowSignIn(true);
+                      setIsOpen(false);
+                    }}
+                    className="w-full px-6 py-2 border border-gray-400 text-white hover:bg-gray-800 font-medium rounded-2xl transition-all duration-300 text-center"
+                  >
+                    Sign In
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowSignUp(true);
+                      setIsOpen(false);
+                    }}
+                    className="w-full px-6 py-2 bg-captur-purple text-white hover:bg-captur-purple/80 font-medium rounded-2xl transition-all duration-300 text-center"
+                  >
+                    Sign Up
+                  </button>
+                </>
+              )}
             </div>
           </div>
         )}
       </div>
+      
+      {/* Modals */}
+      <SignInModal
+        isOpen={showSignIn}
+        onClose={() => setShowSignIn(false)}
+        onSwitchToSignUp={() => {
+          setShowSignIn(false);
+          setShowSignUp(true);
+        }}
+      />
+      <SignUpModal
+        isOpen={showSignUp}
+        onClose={() => setShowSignUp(false)}
+        onSwitchToSignIn={() => {
+          setShowSignUp(false);
+          setShowSignIn(true);
+        }}
+      />
     </nav>
   );
 }

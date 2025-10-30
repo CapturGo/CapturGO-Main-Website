@@ -22,11 +22,12 @@ export default function BrevoFormEmbed() {
                 link.href = "https://sibforms.com/forms/end-form/build/sib-styles.css";
                 document.head.appendChild(link);
             }
-            if (!document.querySelector('script[src*="recaptcha/api.js"]')) {
-                const rec = document.createElement("script");
-                rec.src = "https://www.google.com/recaptcha/api.js?hl=en";
-                document.head.appendChild(rec);
-            }
+            // Temporarily disabled for testing
+            // if (!document.querySelector('script[src*="recaptcha/api.js"]')) {
+            //     const rec = document.createElement("script");
+            //     rec.src = "https://www.google.com/recaptcha/api.js?hl=en";
+            //     document.head.appendChild(rec);
+            // }
         }
     }, []);
 

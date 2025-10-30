@@ -1,8 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 import Navigation from '../components/Navigation';
 import ScrollAnimation from '../components/ScrollAnimation';
+import SignUpModal from '../components/SignUpModal';
+import SignInModal from '../components/SignInModal';
+import Leaderboard from '../components/Leaderboard';
 
 // Animated Counter Component
 function AnimatedCounter({ end, duration = 4000, suffix = "" }) {
@@ -31,12 +35,21 @@ function AnimatedCounter({ end, duration = 4000, suffix = "" }) {
 }
 
 export default function Home() {
+  const { user, loading } = useAuth();
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showLoggedInPopup, setShowLoggedInPopup] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
+  
+  const handleGetStarted = () => {
+    if (user) {
+      setShowLoggedInPopup(true);
+      setTimeout(() => setShowLoggedInPopup(false), 3000);
+    } else {
+      setShowSignUp(true);
+    }
   };
-
+  
   const faqs = [
     {
       question: "What is capturGO, and how does it work?",
@@ -133,7 +146,7 @@ export default function Home() {
               "https://capturnetwork.xyz",
               "https://x.com/captur_go",
               "https://discord.gg/C9gCZ82AHA",
-              "https://community.capturgo.com"
+              "https://discord.gg/C9gCZ82AHA"
             ],
             "applicationCategory": "NavigationApplication",
             "operatingSystem": ["iOS", "Android"],
@@ -164,6 +177,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden -mt-32">
+        {/* Infinite Grid Background Layer */}
+        <div className="absolute inset-0 infinite-grid-bg-slow"></div>
+        
         <div className="absolute inset-0 opacity-20" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
@@ -211,7 +227,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 mb-6 sm:mb-8 max-w-sm sm:max-w-lg mx-auto leading-relaxed px-4 sm:px-0">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 mb-10 sm:mb-12 lg:mb-16 max-w-sm sm:max-w-lg mx-auto leading-relaxed px-4 sm:px-0">
               Join capturGO to build the biggest community-driven real-time driving direction.
             </p>
           </div>
@@ -233,10 +249,8 @@ export default function Home() {
             </a>
 
             {/* Animated Get Started Button */}
-            <a 
-              href="https://community.capturgo.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button 
+              onClick={handleGetStarted}
               className="group flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 bg-gray-800/50 hover:bg-gray-700/60 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 transform hover:scale-105 w-48 sm:w-auto"
             >
               <span className="text-white font-semibold text-base sm:text-lg">Get Started</span>
@@ -245,7 +259,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </div>
-            </a>
+            </button>
           </div>
           
           <div className="mt-16 sm:mt-20">
@@ -435,9 +449,9 @@ export default function Home() {
               
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <a href="https://community.capturgo.com/" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200 text-center">
+                <button onClick={handleGetStarted} className="px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200 text-center">
                   Get Started
-                </a>
+                </button>
                 <a href="https://discord.gg/C9gCZ82AHA" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-transparent border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-xl transition-colors duration-200 text-center">
                   Join Community
                 </a>
@@ -463,22 +477,23 @@ export default function Home() {
       {/* capturGO Capabilities Section */}
       <section id="features" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-2 items-center">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-2 items-center">
             
             {/* Left Content */}
-            <div className="space-y-8 max-w-md ml-auto lg:ml-24 scroll-slide-left">
-              <div>
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                  capturGO<br />
-                  Capabilities
-                </h2>
-                <p className="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-lg">
-                  Explore an all-in-one application to reward everyday travelers through active and passive contributions.
-                </p>
-              </div>
+            <div className="space-y-8 scroll-slide-left">
+              <div className="bg-gray-800/30 backdrop-blur-sm rounded-3xl border border-gray-700/50 p-6 w-80 h-[640px] flex flex-col justify-start pt-12 space-y-8">
+                <div>
+                  <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
+                    capturGO<br />
+                    Capabilities
+                  </h2>
+                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-8">
+                    Explore an all-in-one application to reward everyday travelers through active and passive contributions. Setup takes less than 2 minutes, to begin earning, and contributing to the future of decentralized location intelligence.
+                  </p>
+                </div>
 
-              {/* Capabilities List */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Capabilities List */}
+                <div className="grid grid-cols-1 gap-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -523,8 +538,24 @@ export default function Home() {
                   </div>
                   <span className="text-gray-300 font-medium">Real-time Safety Alerts</span>
                 </div>
+                </div>
               </div>
+            </div>
 
+            {/* Animated Arrow Between Container and Phone */}
+            <div className="hidden lg:flex absolute inset-0 items-center justify-center pointer-events-none z-10">
+              <div className="loading-frame">
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+              </div>
             </div>
 
             {/* Right Phone Mockup */}
@@ -538,6 +569,24 @@ export default function Home() {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Leaderboard Section */}
+      <section id="leaderboard" className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Leaderboard
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              See the top contributors in our community and their rewards
+            </p>
+          </div>
+          
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl border border-gray-700 p-8 lg:p-12">
+            <Leaderboard />
           </div>
         </div>
       </section>
@@ -564,9 +613,9 @@ export default function Home() {
               
               {/* Action Button */}
               <div className="pt-4">
-                <button className="px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200">
-                  Explore Community
-                </button>
+                <a href="https://discord.gg/C9gCZ82AHA" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200">
+                  Join Discord
+                </a>
               </div>
 
             </div>
@@ -657,6 +706,42 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SignUp Modal */}
+      <SignUpModal
+        isOpen={showSignUp}
+        onClose={() => setShowSignUp(false)}
+        onSwitchToSignIn={() => {
+          setShowSignUp(false);
+          setShowSignIn(true);
+        }}
+      />
+
+      {/* SignIn Modal */}
+      <SignInModal
+        isOpen={showSignIn}
+        onClose={() => setShowSignIn(false)}
+        onSwitchToSignUp={() => {
+          setShowSignIn(false);
+          setShowSignUp(true);
+        }}
+      />
+
+      {/* Logged In Popup */}
+      {showLoggedInPopup && (
+        <div className="fixed top-4 right-4 z-50 animate-slide-in-right">
+          <div className="bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg flex items-center space-x-3 max-w-sm">
+            <div className="flex-shrink-0">
+              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-medium">Currently logged in, you are already ahead! 🎉</p>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

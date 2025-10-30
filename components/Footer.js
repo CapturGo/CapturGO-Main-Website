@@ -1,14 +1,19 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import BrevoFormEmbed from './BrevoFormEmbed';
 
 export default function Footer() {
+  const router = useRouter();
+  const isProfilePage = router.pathname === '/profile';
   return (
-    <footer className="bg-gradient-to-t from-gray-900 to-black border-t border-gray-800">
+    <footer className={`bg-gradient-to-t from-gray-900 to-black border-t border-gray-800 ${isProfilePage ? 'mt-12' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Newsletter Subscription */}
-        <div className="mb-12 pb-12 border-b border-gray-800">
-          <BrevoFormEmbed />
-        </div>
+        {/* Newsletter Subscription - Hidden on profile page */}
+        {!isProfilePage && (
+          <div className="mb-12 pb-12 border-b border-gray-800">
+            <BrevoFormEmbed />
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Brand */}
@@ -52,9 +57,6 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Links</h3>
             <div className="space-y-2">
-              <a href="https://community.capturgo.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-white transition-colors">
-                Explore Community
-              </a>
               <a href="https://captur.gitbook.io/capturgo" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-white transition-colors">
                 Docs
               </a>
