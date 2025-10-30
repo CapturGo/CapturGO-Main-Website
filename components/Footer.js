@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import BrevoFormEmbed from './BrevoFormEmbed';
 
@@ -19,11 +20,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="mb-4">
-              <img 
+              <Image 
                 src="/images/logo.svg" 
                 alt="capturGO Logo" 
                 width={120} 
-                height={120}
+                height={40}
+                className="h-12 w-auto"
+                quality={100}
               />
             </div>
             <p className="text-gray-400 max-w-md mb-4">

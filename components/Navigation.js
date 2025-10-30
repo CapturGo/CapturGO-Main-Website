@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useAuth } from '../contexts/AuthContext';
 import SignInModal from './SignInModal';
 import SignUpModal from './SignUpModal';
@@ -19,12 +20,14 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="hover:opacity-80 transition-opacity">
-              <img 
+              <Image 
                 src="/images/logo.svg" 
                 alt="capturGO Logo" 
                 width={180} 
                 height={60}
-                className="h-12"
+                className="h-12 w-auto"
+                priority
+                quality={100}
               />
             </Link>
           </div>
