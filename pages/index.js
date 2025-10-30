@@ -62,6 +62,10 @@ export default function Home() {
   const [showLoggedInPopup, setShowLoggedInPopup] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
   
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+  
   const handleGetStarted = () => {
     if (user) {
       setShowLoggedInPopup(true);
