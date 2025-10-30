@@ -26,7 +26,7 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }) {
 
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-        redirectTo: `${window.location.origin}/api/auth/callback`,
+        redirectTo: `https://capturgo.com/api/auth/callback`,
       });
 
       if (error) {

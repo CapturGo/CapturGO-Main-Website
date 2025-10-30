@@ -25,7 +25,8 @@ export default function Footer() {
                 alt="capturGO Logo" 
                 width={120} 
                 height={40}
-                className="h-12 w-auto"
+                className="h-12"
+                style={{ width: 'auto' }}
                 quality={100}
               />
             </div>

@@ -25,7 +25,8 @@ export default function Navigation() {
                 alt="capturGO Logo" 
                 width={180} 
                 height={60}
-                className="h-12 w-auto"
+                className="h-12"
+                style={{ width: 'auto' }}
                 priority
                 quality={100}
               />
