@@ -32,7 +32,6 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
 
       return !error && data !== null;
     } catch (error) {
-      console.error('Error validating referral code:', error);
       return false;
     }
   };
@@ -146,8 +145,6 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
 
       // Store referral code in the database immediately after account creation
       if (referralCode && signUpData.user?.id) {
-        console.log('Storing referral code in database for user:', signUpData.user.id);
-        
         // Store referral relationship in database - backend will handle token rewards
         const { error: profileError } = await supabase
           .from('profiles')
@@ -156,17 +153,8 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
             username: username,
             email: email,
             referred_by: referralCode.toUpperCase(),
-            referral_code: null // Will be generated later when they access profile
-          }, {
-            onConflict: 'id'
+            created_at: new Date().toISOString()
           });
-
-        if (profileError) {
-          console.error('Error creating profile with referral code:', profileError);
-        } else {
-          console.log('✅ Profile created with referral code:', referralCode);
-          console.log('Backend will handle token rewards for referral');
-        }
       }
 
       // Success - user is now logged in

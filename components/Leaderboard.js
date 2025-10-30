@@ -13,7 +13,7 @@ export default function Leaderboard() {
       setError(null);
     } catch (err) {
       setError('Failed to load leaderboard');
-      console.error('Error loading leaderboard:', err);
+      // Error loading leaderboard
     } finally {
       setIsLoading(false);
     }

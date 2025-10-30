@@ -14,8 +14,8 @@ export default function Navigation() {
   const [showSignUp, setShowSignUp] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -23,9 +23,9 @@ export default function Navigation() {
               <Image 
                 src="/images/logo.svg" 
                 alt="capturGO Logo" 
-                width={180} 
-                height={60}
-                className="h-12"
+                width={96} 
+                height={32}
+                className="h-8"
                 style={{ width: 'auto' }}
                 priority
                 quality={100}
@@ -95,7 +95,8 @@ export default function Navigation() {
           {/* Mobile menu button - Right side */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white hover:text-gray-300 transition-colors"
+            className="md:hidden text-white hover:text-gray-300 transition-colors z-50 relative p-2"
+            aria-label="Toggle mobile menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
@@ -109,8 +110,8 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden py-4 border-t border-gray-800 bg-black/95 backdrop-blur-md">
+            <div className="flex flex-col space-y-4 px-4">
               <Link 
                 href="/#discover" 
                 className="text-gray-300 hover:text-white transition-colors"

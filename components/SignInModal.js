@@ -89,7 +89,6 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }) {
       if (error) {
         setError(error.message);
       } else {
-        console.log('User signed in successfully:', data);
         onClose();
         router.push('/profile');
         setEmail('');

@@ -38,6 +38,27 @@ export default function Home() {
   const { user, loading } = useAuth();
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
+
+  // Handle password recovery tokens that land on homepage
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const accessToken = hashParams.get('access_token');
+      const type = hashParams.get('type');
+      
+      if (accessToken && type === 'recovery') {
+        // Redirect to reset password page with the token
+        const resetUrl = `/reset-password${window.location.hash}`;
+        
+        // Clear the hash from current page for security
+        window.history.replaceState(null, null, window.location.pathname);
+        
+        // Redirect to reset page
+        window.location.replace(resetUrl);
+      }
+    }
+  }, []);
+
   const [showLoggedInPopup, setShowLoggedInPopup] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
   

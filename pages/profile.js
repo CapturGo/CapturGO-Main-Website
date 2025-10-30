@@ -83,7 +83,7 @@ export default function Profile() {
         });
       }
     } catch (err) {
-      console.error('Error loading referral data:', err);
+      // Error loading referral data
     }
   };
 
@@ -165,7 +165,6 @@ export default function Profile() {
         }, 100);
       }
     } catch (err) {
-      console.error('Error loading profile:', err);
       setError('Failed to load profile data');
     } finally {
       setIsLoading(false);
@@ -192,7 +191,7 @@ export default function Profile() {
           setShowCopyToast(false);
         }, 2000);
       } catch (err) {
-        console.error('Failed to copy referral code:', err);
+        // Failed to copy referral code
       }
     }
   };

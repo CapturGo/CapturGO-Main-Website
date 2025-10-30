@@ -17,17 +17,23 @@ export default function ResetPasswordPage() {
       const queryParams = new URLSearchParams(window.location.search);
       
       const accessToken = hashParams.get('access_token') || queryParams.get('access_token');
+      const refreshToken = hashParams.get('refresh_token') || queryParams.get('refresh_token');
       const type = hashParams.get('type') || queryParams.get('type');
       
       if (accessToken && type === 'recovery') {
-        
         const { data, error } = await supabase.auth.setSession({
           access_token: accessToken,
-          refresh_token: accessToken
+          refresh_token: refreshToken || accessToken
         });
         
         if (error) {
           setError('Invalid or expired reset link. Please request a new password reset.');
+          // Clear hash from URL for security
+          window.history.replaceState(null, null, window.location.pathname);
+        } else {
+          setError(''); // Clear any existing errors
+          // Clear hash from URL after successful session establishment
+          window.history.replaceState(null, null, window.location.pathname);
         }
       } else {
         const { data } = await supabase.auth.getSession();

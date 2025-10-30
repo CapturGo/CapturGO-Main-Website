@@ -12,10 +12,24 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #000000;
   color: #ffffff;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Prevent horizontal scrolling on all elements */
+body, html {
+  max-width: 100vw;
+}
+
+/* Ensure mobile navigation is properly positioned */
+@media (max-width: 768px) {
+  .mobile-nav-container {
+    position: relative;
+    z-index: 50;
+  }
 }
 
 /* Cool infinite background scrolling animation */
