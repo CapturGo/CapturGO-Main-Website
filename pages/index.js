@@ -464,7 +464,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Content */}
-            <div className="space-y-8">
+            <div className="space-y-8 scroll-slide-left">
               <div className="text-sm text-gray-400 font-medium tracking-wider uppercase">
                 Move, Share, Earn.
               </div>
@@ -490,7 +490,7 @@ export default function Home() {
             </div>
 
             {/* Right Content - Start Image */}
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end scroll-slide-right">
               <div className="relative">
                 <img 
                   src="/images/Start.png" 
@@ -508,23 +508,37 @@ export default function Home() {
       {/* capturGO Capabilities Section */}
       <section id="features" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-2 items-center">
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl border border-gray-700 p-8 lg:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            {/* Left Content */}
-            <div className="space-y-8 scroll-slide-left flex justify-center lg:justify-start">
-              <div className="bg-gray-800/30 backdrop-blur-sm rounded-3xl border border-gray-700/50 p-6 w-80 h-[640px] flex flex-col justify-start pt-12 space-y-8">
-                <div>
-                  <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
-                    capturGO<br />
-                    Capabilities
-                  </h2>
-                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-8">
-                    Explore an all-in-one application to reward everyday travelers through active and passive contributions. Setup takes less than 2 minutes, to begin earning, and contributing to the future of decentralized location intelligence.
-                  </p>
-                </div>
+            {/* Left Content - Image */}
+            <div className="flex justify-center lg:justify-start scroll-slide-left">
+              <div className="relative">
+                <img 
+                  src="/images/Rewards.png" 
+                  alt="capturGO Rewards Interface" 
+                  className="w-[32rem] h-auto"
+                />
+              </div>
+            </div>
 
-                {/* Capabilities List */}
-                <div className="grid grid-cols-1 gap-3">
+            {/* Right Content - Text */}
+            <div className="space-y-8 scroll-slide-right">
+              <div className="text-sm text-gray-400 font-medium tracking-wider uppercase">
+                All-In-One Application
+              </div>
+              
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                capturGO<br />
+                Capabilities
+              </h2>
+              
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-lg">
+                Explore an all-in-one application to reward everyday travelers through active and passive contributions. Setup takes less than 2 minutes, to begin earning, and contributing to the future of decentralized location intelligence.
+              </p>
+              
+              {/* Capabilities List */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -533,7 +547,6 @@ export default function Home() {
                   </div>
                   <span className="text-gray-300 font-medium">Passive Income</span>
                 </div>
-
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -542,7 +555,6 @@ export default function Home() {
                   </div>
                   <span className="text-gray-300 font-medium">Community-driven</span>
                 </div>
-
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -551,7 +563,6 @@ export default function Home() {
                   </div>
                   <span className="text-gray-300 font-medium">Decentralized</span>
                 </div>
-
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -560,46 +571,10 @@ export default function Home() {
                   </div>
                   <span className="text-gray-300 font-medium">Real-time Traffic</span>
                 </div>
-
-                <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <span className="text-gray-300 font-medium">Real-time Safety Alerts</span>
-                </div>
-                </div>
               </div>
             </div>
 
-            {/* Animated Arrow Between Container and Phone */}
-            <div className="hidden lg:flex absolute inset-0 items-center justify-center pointer-events-none z-10">
-              <div className="loading-frame">
-                <div className="circle"></div>
-                <div className="circle"></div>
-                <div className="circle"></div>
-                <div className="circle"></div>
-                <div className="circle"></div>
-                <div className="circle"></div>
-                <div className="circle"></div>
-                <div className="circle"></div>
-                <div className="circle"></div>
-                <div className="circle"></div>
-              </div>
             </div>
-
-            {/* Right Phone Mockup */}
-            <div className="flex justify-center lg:justify-center scroll-slide-right">
-              <div className="relative">
-                <img 
-                  src="/images/Rewards.png" 
-                  alt="capturGO Rewards Interface" 
-                  className="w-80 h-auto"
-                />
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
@@ -607,7 +582,7 @@ export default function Home() {
       {/* Leaderboard Section */}
       <section id="leaderboard" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 scroll-fade-in">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               Leaderboard
             </h2>
@@ -616,7 +591,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl border border-gray-700 p-8 lg:p-12">
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl border border-gray-700 p-8 lg:p-12 scroll-scale-up">
             <Leaderboard />
           </div>
         </div>
@@ -629,7 +604,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Content */}
-            <div className="space-y-8">
+            <div className="space-y-8 scroll-slide-left">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800 text-gray-300 text-sm font-medium">
                 COMMUNITY
               </div>
@@ -652,7 +627,7 @@ export default function Home() {
             </div>
 
             {/* Right Content - Interface Mockup */}
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end scroll-slide-right">
               <div className="relative">
                 <img 
                   src="/images/Community.png" 
