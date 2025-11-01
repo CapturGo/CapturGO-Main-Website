@@ -126,7 +126,7 @@ export default function Home() {
         <meta property="og:image" content="https://capturgo.com/images/logo.svg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="capturGO - Captur Network" />
+        <meta property="og:site_name" content="capturGO" />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
@@ -171,8 +171,8 @@ export default function Home() {
             "sameAs": [
               "https://capturnetwork.xyz",
               "https://x.com/captur_go",
-              "https://discord.gg/C9gCZ82AHA",
-              "https://discord.gg/C9gCZ82AHA"
+              "https://discord.gg/mWgtjcNe",
+              "https://discord.gg/mWgtjcNe"
             ],
             "applicationCategory": "NavigationApplication",
             "operatingSystem": ["iOS", "Android"],
@@ -266,7 +266,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             {/* Join Discord Button */}
             <a 
-              href="https://discord.gg/C9gCZ82AHA"
+              href="https://discord.gg/mWgtjcNe"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 bg-gray-800/50 hover:bg-gray-700/60 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 transform hover:scale-105 w-48 sm:w-auto"
@@ -483,7 +483,7 @@ export default function Home() {
                 <button onClick={handleGetStarted} className="px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200 text-center">
                   Get Started
                 </button>
-                <a href="https://discord.gg/C9gCZ82AHA" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-transparent border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-xl transition-colors duration-200 text-center">
+                <a href="https://discord.gg/mWgtjcNe" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-transparent border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-xl transition-colors duration-200 text-center">
                   Join Community
                 </a>
               </div>
@@ -644,7 +644,7 @@ export default function Home() {
               
               {/* Action Button */}
               <div className="pt-4">
-                <a href="https://discord.gg/C9gCZ82AHA" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200">
+                <a href="https://discord.gg/mWgtjcNe" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200">
                   Join Discord
                 </a>
               </div>
