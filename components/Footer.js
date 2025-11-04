@@ -1,16 +1,24 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 import BrevoFormEmbed from './BrevoFormEmbed';
 
 export default function Footer() {
   const router = useRouter();
-  const isProfilePage = router.pathname === '/profile';
+  const [hideNewsletter, setHideNewsletter] = useState(false);
+
+  useEffect(() => {
+    const isProfilePage = router.pathname === '/profile';
+    const isBlogPage = router.pathname === '/blog' || router.pathname.startsWith('/blog/');
+    setHideNewsletter(isProfilePage || isBlogPage);
+  }, [router.pathname]);
+  
   return (
-    <footer className={`bg-gradient-to-t from-gray-900 to-black border-t border-gray-800 ${isProfilePage ? 'mt-12' : ''}`}>
+    <footer className={`bg-gradient-to-t from-gray-900 to-black border-t border-gray-800 ${hideNewsletter ? 'mt-12' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Newsletter Subscription - Hidden on profile page */}
-        {!isProfilePage && (
+        {/* Newsletter Subscription - Hidden on profile and blog pages */}
+        {!hideNewsletter && (
           <div className="mb-12 pb-12 border-b border-gray-800">
             <BrevoFormEmbed />
           </div>
@@ -56,6 +64,9 @@ export default function Footer() {
               </Link>
               <Link href="/#faq" className="block text-gray-400 hover:text-white transition-colors">
                 FAQ's
+              </Link>
+              <Link href="/blog" className="block text-gray-400 hover:text-white transition-colors">
+                Blog
               </Link>
             </div>
           </div>
