@@ -193,7 +193,7 @@ export default function GettingStartedTutorial() {
                         Download CapturGO
                       </h3>
                       <p className="text-gray-300 ml-11">
-                        Join the Beta on iOS (via TestFlight) or Android.
+                        Join the Beta on iOS (via TestFlight). Android coming soon!
                         Install the app and sign up with your email to get started.
                       </p>
                     </div>
@@ -228,7 +228,7 @@ export default function GettingStartedTutorial() {
                       <div className="text-gray-300 ml-11">
                         <p className="mb-3">Inside the app, you can track:</p>
                         <ul className="space-y-1">
-                          <li>• Your total rewards (GO Points)</li>
+                          <li>• Your total rewards (CAPT Points)</li>
                           <li>• Your leaderboard rank</li>
                           <li>• Daily stats and badges</li>
                         </ul>
@@ -255,7 +255,7 @@ export default function GettingStartedTutorial() {
                   </ul>
                   
                   <p>
-                    You'll collect GO Points, which can later convert into Captur Tokens ($CAPTUR).
+                    You'll collect CAPT Points, which can later convert into $CAPT tokens.
                     These tokens represent your contribution to the network and can be used for future rewards, perks, or trading once the ecosystem launches.
                   </p>
                 </div>
