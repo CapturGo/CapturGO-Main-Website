@@ -8,6 +8,7 @@ import ScrollAnimation from '../components/ScrollAnimation';
 import SignUpModal from '../components/SignUpModal';
 import SignInModal from '../components/SignInModal';
 import Leaderboard from '../components/Leaderboard';
+import { announcements } from '../data/announcements';
 
 // Animated Counter Component
 function AnimatedCounter({ end, duration = 4000, suffix = "" }) {
@@ -638,6 +639,56 @@ export default function Home() {
             </div>
 
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Announcements Section */}
+      <section className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl border border-gray-700 p-8 lg:p-12">
+            <div className="text-center mb-16 scroll-fade-in">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                Latest <span className="bg-gradient-to-r from-purple-500 to-purple-300 bg-clip-text text-transparent">Announcements</span>
+              </h2>
+            </div>
+          
+          <div className="space-y-8 scroll-fade-in">
+            {announcements.map((announcement, index) => {
+              const isLast = index === announcements.length - 1;
+              const AnnouncementWrapper = announcement.link ? 'a' : 'div';
+              const wrapperProps = announcement.link 
+                ? { href: announcement.link, className: "group block", target: "_blank", rel: "noopener noreferrer" }
+                : { className: isLast ? "pb-8" : "border-b border-gray-800 pb-8" };
+
+              return (
+                <div key={announcement.id} className={isLast ? "pb-8" : "border-b border-gray-800 pb-8"}>
+                  <AnnouncementWrapper {...wrapperProps}>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-3 flex items-center">
+                      <span className={`${
+                        announcement.link 
+                          ? "text-white group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-purple-300 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300" 
+                          : "text-white"
+                      }`}>
+                        {announcement.title}
+                      </span>
+                      {announcement.link && (
+                        <svg className="w-5 h-5 ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      )}
+                    </h3>
+                    <p className="text-gray-400 mb-2 leading-relaxed">
+                      {announcement.description}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      {announcement.date}
+                    </p>
+                  </AnnouncementWrapper>
+                </div>
+              );
+            })}
+          </div>
           </div>
         </div>
       </section>
