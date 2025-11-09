@@ -19,6 +19,7 @@ export default function Profile() {
   const [error, setError] = useState('');
   const [isSyncing, setIsSyncing] = useState(false);
   const [showCopyToast, setShowCopyToast] = useState(false);
+  const [showShareToast, setShowShareToast] = useState(false);
 
   useEffect(() => {
     // Get current user
@@ -196,6 +197,41 @@ export default function Profile() {
     }
   };
 
+  const shareReferralLink = async () => {
+    if (profile?.referral_code) {
+      const referralLink = `${window.location.origin}?ref=${profile.referral_code}`;
+      
+      // Check if Web Share API is supported
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'Join CapturGO with my referral code!',
+            text: 'Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!',
+            url: referralLink
+          });
+        } catch (err) {
+          // User cancelled share or error occurred, fallback to copy
+          await copyReferralLinkToClipboard(referralLink);
+        }
+      } else {
+        // Fallback to copying link
+        await copyReferralLinkToClipboard(referralLink);
+      }
+    }
+  };
+
+  const copyReferralLinkToClipboard = async (link) => {
+    try {
+      await navigator.clipboard.writeText(link);
+      setShowShareToast(true);
+      setTimeout(() => {
+        setShowShareToast(false);
+      }, 3000);
+    } catch (err) {
+      // Failed to copy referral link
+    }
+  };
+
   // Show loading while auth is being determined
   if (isLoading && !error) {
     return (
@@ -321,7 +357,7 @@ export default function Profile() {
             
             <div className="bg-gray-800 rounded-lg p-4">
               <p className="text-white/70 text-sm mb-2">Your Referral Code</p>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-3">
                 <code className="text-white font-mono text-lg tracking-wider">
                   {profile?.referral_code || 'Loading...'}
                 </code>
@@ -330,6 +366,19 @@ export default function Profile() {
                   className="px-3 py-1 bg-white/10 hover:bg-white/20 rounded text-white text-sm transition-colors"
                 >
                   Copy
+                </button>
+              </div>
+              
+              {/* Share Button */}
+              <div className="pt-3 border-t border-gray-700">
+                <button
+                  onClick={shareReferralLink}
+                  className="w-full flex items-center justify-center space-x-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white text-sm font-medium transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                  </svg>
+                  <span>Share Referral Link</span>
                 </button>
               </div>
             </div>
@@ -514,6 +563,18 @@ export default function Profile() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               <span className="font-medium">Referral code copied!</span>
+            </div>
+          </div>
+        )}
+
+        {/* Share Toast Notification */}
+        {showShareToast && (
+          <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-out">
+            <div className="bg-purple-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2 animate-bounce">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+              </svg>
+              <span className="font-medium">Referral link copied to clipboard!</span>
             </div>
           </div>
         )}

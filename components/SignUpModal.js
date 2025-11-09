@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '../lib/supabaseClient';
 import { generateUniqueReferralCode } from '../utils/referralCode';
@@ -20,6 +20,28 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
   const [success, setSuccess] = useState('');
   const [captchaToken, setCaptchaToken] = useState(null);
   const recaptchaRef = useRef(null);
+
+  // Auto-fill referral code from URL parameter or sessionStorage
+  useEffect(() => {
+    if (isOpen && typeof window !== 'undefined') {
+      // First check if there's a referral code in the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const refCode = urlParams.get('ref');
+      
+      if (refCode && !referralCode) {
+        const upperRefCode = refCode.toUpperCase();
+        setReferralCode(upperRefCode);
+        // Store in sessionStorage so it persists even after URL cleanup
+        sessionStorage.setItem('pendingReferralCode', upperRefCode);
+      } else if (!referralCode) {
+        // Check if there's a stored referral code from a previous visit
+        const storedRefCode = sessionStorage.getItem('pendingReferralCode');
+        if (storedRefCode) {
+          setReferralCode(storedRefCode);
+        }
+      }
+    }
+  }, [isOpen, referralCode]);
 
   // Validate referral code exists in database
   const validateReferralCode = async (code) => {
@@ -160,12 +182,17 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
       // Success - user is now logged in
       setSuccess('Account created successfully! Redirecting to your profile...');
       
-      // Clear form
+      // Clear form and stored referral code
       setEmail('');
       setPassword('');
       setConfirmPassword('');
       setUsername('');
       setReferralCode('');
+      
+      // Clear stored referral code from sessionStorage
+      if (typeof window !== 'undefined') {
+        sessionStorage.removeItem('pendingReferralCode');
+      }
       
       // Close modal and redirect after a short delay to show success message
       setTimeout(() => {
@@ -259,8 +286,18 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
               placeholder="Referral Code (Optional)"
               value={referralCode}
               onChange={(e) => setReferralCode(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500"
+              className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 ${
+                referralCode ? 'border-green-500' : 'border-gray-700'
+              }`}
             />
+            {referralCode && (
+              <p className="text-green-400 text-xs mt-1 flex items-center">
+                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Referral code applied! 
+              </p>
+            )}
           </div>
 
           {error && (

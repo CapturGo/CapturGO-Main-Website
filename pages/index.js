@@ -41,25 +41,41 @@ export default function Home() {
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
 
-  // Handle password recovery tokens that land on homepage
+  // Handle password recovery tokens and referral links
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.hash) {
-      const hashParams = new URLSearchParams(window.location.hash.substring(1));
-      const accessToken = hashParams.get('access_token');
-      const type = hashParams.get('type');
-      
-      if (accessToken && type === 'recovery') {
-        // Redirect to reset password page with the token
-        const resetUrl = `/reset-password${window.location.hash}`;
+    if (typeof window !== 'undefined') {
+      // Handle password recovery tokens
+      if (window.location.hash) {
+        const hashParams = new URLSearchParams(window.location.hash.substring(1));
+        const accessToken = hashParams.get('access_token');
+        const type = hashParams.get('type');
         
-        // Clear the hash from current page for security
-        window.history.replaceState(null, null, window.location.pathname);
-        
-        // Redirect to reset page
-        window.location.replace(resetUrl);
+        if (accessToken && type === 'recovery') {
+          // Redirect to reset password page with the token
+          const resetUrl = `/reset-password${window.location.hash}`;
+          
+          // Clear the hash from current page for security
+          window.history.replaceState(null, null, window.location.pathname);
+          
+          // Redirect to reset page
+          window.location.replace(resetUrl);
+          return;
+        }
+      }
+
+      // Handle referral links - auto-open signup modal
+      const urlParams = new URLSearchParams(window.location.search);
+      const refCode = urlParams.get('ref');
+      if (refCode && !user && !loading) {
+        // Store referral code in sessionStorage before cleaning URL
+        sessionStorage.setItem('pendingReferralCode', refCode.toUpperCase());
+        setShowSignUp(true);
+        // Clean up URL after opening modal
+        const newUrl = window.location.pathname;
+        window.history.replaceState(null, null, newUrl);
       }
     }
-  }, []);
+  }, [user, loading]);
 
   const [showLoggedInPopup, setShowLoggedInPopup] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
