@@ -208,26 +208,43 @@ export default function Profile() {
   };
 
   const shareReferralLink = async () => {
-    if (profile?.referral_code) {
-      const referralLink = `${window.location.origin}?ref=${profile.referral_code}`;
-      
-      // Check if Web Share API is supported
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: 'Join CapturGO with my referral code!',
-            text: 'Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!',
-            url: referralLink
-          });
-        } catch (err) {
-          // User cancelled share or error occurred, fallback to copy
-          await copyReferralLinkToClipboard(referralLink);
-        }
-      } else {
-        // Fallback to copying link
-        await copyReferralLinkToClipboard(referralLink);
-      }
+    const referralUrl = `https://capturgo.com?ref=${profile.referral_code}`;
+    
+    try {
+      await navigator.clipboard.writeText(referralUrl);
+      setShowShareToast(true);
+      setTimeout(() => {
+        setShowShareToast(false);
+      }, 3000);
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = referralUrl;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setShowShareToast(true);
+      setTimeout(() => {
+        setShowShareToast(false);
+      }, 3000);
     }
+  };
+
+  const shareToX = () => {
+    const referralUrl = `https://capturgo.com?ref=${profile.referral_code}`;
+    const tweetText = `Move to Earn with @captur_go! 
+
+Join the people powered decentralized map network and earn tokens for moving.🗺️
+
+Use my referral code to get started with bonus points! 
+
+${referralUrl}
+
+#DePIN #DeFI #MOVEWITHCAPTUR`;
+    
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+    window.open(twitterUrl, '_blank');
   };
 
   const copyReferralLinkToClipboard = async (link) => {
@@ -379,16 +396,26 @@ export default function Profile() {
                 </button>
               </div>
               
-              {/* Share Button */}
-              <div className="pt-3 border-t border-gray-700">
+              {/* Share Buttons */}
+              <div className="pt-3 border-t border-gray-700 space-y-2">
                 <button
                   onClick={shareReferralLink}
                   className="w-full flex items-center justify-center space-x-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white text-sm font-medium transition-colors"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                   </svg>
-                  <span>Share Referral Link</span>
+                  <span>Copy Referral Link</span>
+                </button>
+                
+                <button
+                  onClick={shareToX}
+                  className="w-full flex items-center justify-center space-x-2 px-4 py-2 bg-black hover:bg-gray-900 border border-gray-600 rounded-lg text-white text-sm font-medium transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  <span>Share to X</span>
                 </button>
               </div>
             </div>
