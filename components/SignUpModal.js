@@ -129,9 +129,10 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
     try {
       // Validate referral code if provided (but don't distribute tokens - backend handles that)
       if (referralCode) {
+        setError(''); // Clear any previous errors
         const isValidReferral = await validateReferralCode(referralCode);
         if (!isValidReferral) {
-          setError('Invalid referral code. Please check and try again.');
+          setError(`Referral code "${referralCode.toUpperCase()}" doesn't exist. Please check the code and try again.`);
           setIsLoading(false);
           return;
         }
