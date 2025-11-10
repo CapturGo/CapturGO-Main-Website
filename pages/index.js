@@ -68,7 +68,7 @@ export default function Home({ isReferralLink = false }) {
       const urlParams = new URLSearchParams(window.location.search);
       const refCode = urlParams.get('ref');
       if (refCode) {
-        setIsReferralLink(true);
+        setIsReferralLinkState(true);
         if (!user && !loading) {
           // Store referral code in sessionStorage before cleaning URL
           sessionStorage.setItem('pendingReferralCode', refCode.toUpperCase());
