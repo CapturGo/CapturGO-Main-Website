@@ -76,7 +76,7 @@ export default function Custom404() {
 
             {/* Join Discord Button */}
             <Link 
-              href="https://discord.gg/mWgtjcNe"
+              href="https://discord.gg/v6GS9swS"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-3 px-8 py-4 bg-gray-800/50 hover:bg-gray-700/60 text-white font-semibold rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 transform hover:scale-105 min-w-[200px]"

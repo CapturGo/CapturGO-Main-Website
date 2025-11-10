@@ -103,7 +103,7 @@ export default function Footer() {
                 <span>X</span>
               </a>
               <a 
-                href="https://discord.gg/mWgtjcNe" 
+                href="https://discord.gg/v6GS9swS" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
