@@ -40,6 +40,7 @@ export default function Home() {
   const { user, loading } = useAuth();
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
+  const [isReferralLink, setIsReferralLink] = useState(false);
 
   // Handle password recovery tokens and referral links
   useEffect(() => {
@@ -66,13 +67,16 @@ export default function Home() {
       // Handle referral links - auto-open signup modal
       const urlParams = new URLSearchParams(window.location.search);
       const refCode = urlParams.get('ref');
-      if (refCode && !user && !loading) {
-        // Store referral code in sessionStorage before cleaning URL
-        sessionStorage.setItem('pendingReferralCode', refCode.toUpperCase());
-        setShowSignUp(true);
-        // Clean up URL after opening modal
-        const newUrl = window.location.pathname;
-        window.history.replaceState(null, null, newUrl);
+      if (refCode) {
+        setIsReferralLink(true);
+        if (!user && !loading) {
+          // Store referral code in sessionStorage before cleaning URL
+          sessionStorage.setItem('pendingReferralCode', refCode.toUpperCase());
+          setShowSignUp(true);
+          // Clean up URL after opening modal
+          const newUrl = window.location.pathname;
+          window.history.replaceState(null, null, newUrl);
+        }
       }
     }
   }, [user, loading]);
@@ -138,9 +142,9 @@ export default function Home() {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://capturgo.com" />
-        <meta property="og:title" content="capturGO - Decentralized GPS Navigation App | Earn Crypto Rewards" />
-        <meta property="og:description" content="Revolutionary decentralized GPS navigation app by Captur Network. Earn crypto rewards for sharing real-time traffic data and location intelligence. Join the future of community-powered navigation." />
-        <meta property="og:image" content="https://capturgo.com/images/logo.svg" />
+        <meta property="og:title" content={isReferralLink ? "Join CapturGO with my referral code!" : "capturGO - Decentralized GPS Navigation App | Earn Crypto Rewards"} />
+        <meta property="og:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!" : "Revolutionary decentralized GPS navigation app by Captur Network. Earn crypto rewards for sharing real-time traffic data and location intelligence. Join the future of community-powered navigation."} />
+        <meta property="og:image" content={isReferralLink ? "https://capturgo.com/images/ReferalSocial.png" : "https://capturgo.com/images/logo.svg"} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="capturGO" />
@@ -149,9 +153,9 @@ export default function Home() {
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://capturgo.com" />
-        <meta name="twitter:title" content="capturGO - Decentralized GPS Navigation App | Earn Crypto Rewards" />
-        <meta name="twitter:description" content="Revolutionary decentralized GPS navigation app by Captur Network. Earn crypto rewards for sharing real-time traffic data and location intelligence." />
-        <meta name="twitter:image" content="https://capturgo.com/images/logo.svg" />
+        <meta name="twitter:title" content={isReferralLink ? "Join CapturGO with my referral code!" : "capturGO - Decentralized GPS Navigation App | Earn Crypto Rewards"} />
+        <meta name="twitter:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!" : "Revolutionary decentralized GPS navigation app by Captur Network. Earn crypto rewards for sharing real-time traffic data and location intelligence."} />
+        <meta name="twitter:image" content={isReferralLink ? "https://capturgo.com/images/ReferalSocial.png" : "https://capturgo.com/images/logo.svg"} />
         <meta name="twitter:creator" content="@captur_go" />
         <meta name="twitter:site" content="@captur_go" />
         
