@@ -98,33 +98,33 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
       return;
     }
 
-    // CAPTCHA temporarily disabled for testing
-    // if (!captchaToken) {
-    //   setError('Please complete the CAPTCHA verification');
-    //   setIsLoading(false);
-    //   return;
-    // }
+    // CAPTCHA validation
+    if (!captchaToken) {
+      setError('Please complete the CAPTCHA verification');
+      setIsLoading(false);
+      return;
+    }
 
-    // // Verify CAPTCHA with server
-    // try {
-    //   const captchaResponse = await fetch('/api/verify-captcha', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ captchaToken })
-    //   });
+    // Verify CAPTCHA with server
+    try {
+      const captchaResponse = await fetch('/api/verify-captcha', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ captchaToken })
+      });
 
-    //   if (!captchaResponse.ok) {
-    //     setError('CAPTCHA verification failed. Please try again.');
-    //     recaptchaRef.current?.reset();
-    //     setCaptchaToken(null);
-    //     setIsLoading(false);
-    //     return;
-    //   }
-    // } catch (error) {
-    //   setError('CAPTCHA verification error. Please try again.');
-    //   setIsLoading(false);
-    //   return;
-    // }
+      if (!captchaResponse.ok) {
+        setError('CAPTCHA verification failed. Please try again.');
+        recaptchaRef.current?.reset();
+        setCaptchaToken(null);
+        setIsLoading(false);
+        return;
+      }
+    } catch (error) {
+      setError('CAPTCHA verification error. Please try again.');
+      setIsLoading(false);
+      return;
+    }
 
     try {
       // Validate referral code if provided (but don't distribute tokens - backend handles that)
@@ -311,7 +311,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
             </div>
           )}
 
-          {/* CAPTCHA - Temporarily disabled for testing */}
+          {/* CAPTCHA */}
           <div className="flex justify-center">
             <ReCAPTCHA
               ref={recaptchaRef}
