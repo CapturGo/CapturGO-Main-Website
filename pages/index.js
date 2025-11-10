@@ -36,11 +36,11 @@ function AnimatedCounter({ end, duration = 4000, suffix = "" }) {
   return <span>{count.toLocaleString()}{suffix}</span>;
 }
 
-export default function Home() {
+export default function Home({ isReferralLink = false }) {
   const { user, loading } = useAuth();
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
-  const [isReferralLink, setIsReferralLink] = useState(false);
+  const [isReferralLinkState, setIsReferralLinkState] = useState(isReferralLink);
 
   // Handle password recovery tokens and referral links
   useEffect(() => {
@@ -826,5 +826,17 @@ export default function Home() {
       )}
     </>
   );
+}
+
+// Server-side props to detect referral links for proper social sharing
+export async function getServerSideProps(context) {
+  const { query } = context;
+  const isReferralLink = !!query.ref;
+  
+  return {
+    props: {
+      isReferralLink,
+    },
+  };
 }
 
