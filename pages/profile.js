@@ -54,11 +54,12 @@ export default function Profile() {
     if (!user || !userProfile?.referral_code) return;
 
     try {
-      // Get users who used this user's referral code
+      // Get users who used this user's referral code (newest first)
       const { data: referredUsersData, error: referredError } = await supabase
         .from('profiles')
         .select('id, username, updated_at')
-        .eq('referred_by', userProfile.referral_code);
+        .eq('referred_by', userProfile.referral_code)
+        .order('updated_at', { ascending: false });
 
       if (!referredError && referredUsersData) {
         const referredUsers = referredUsersData.map(user => ({
