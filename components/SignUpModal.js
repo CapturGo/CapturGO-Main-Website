@@ -165,19 +165,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
         return;
       }
 
-      // Store referral code in the database immediately after account creation
-      if (referralCode && signUpData.user?.id) {
-        // Store referral relationship in database - backend will handle token rewards
-        const { error: profileError } = await supabase
-          .from('profiles')
-          .upsert({
-            id: signUpData.user.id,
-            username: username,
-            email: email,
-            referred_by: referralCode.toUpperCase(),
-            created_at: new Date().toISOString()
-          });
-      }
+      // Referral code is already saved in user metadata and will be handled by profile.js
 
       // Success - user is now logged in
       setSuccess('Account created successfully! Redirecting to your profile...');

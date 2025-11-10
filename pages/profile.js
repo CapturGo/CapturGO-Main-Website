@@ -98,11 +98,20 @@ export default function Profile() {
       // First, try to get existing profile
       const { data: existingProfile, error: fetchError } = await supabase
         .from('profiles')
-        .select('username, token_balance, referral_code')
+        .select('username, token_balance, referral_code, referred_by')
         .eq('id', currentUser.id)
         .single();
 
       if (existingProfile) {
+        // Check if we need to update referred_by for existing profile
+        const referredBy = currentUser.user_metadata?.used_referral_code || null;
+        if (referredBy && !existingProfile.referred_by) {
+          await supabase
+            .from('profiles')
+            .update({ referred_by: referredBy })
+            .eq('id', currentUser.id);
+        }
+        
         // If profile exists but no referral code, generate one
         let referralCode = existingProfile.referral_code;
         if (!referralCode) {
