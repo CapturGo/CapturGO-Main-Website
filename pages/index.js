@@ -192,8 +192,8 @@ export default function Home({ isReferralLink = false }) {
             "sameAs": [
               "https://capturnetwork.xyz",
               "https://x.com/captur_go",
-              "https://discord.gg/v6GS9swS",
-              "https://discord.gg/v6GS9swS"
+              "https://discord.gg/b3QGgp4Nx4",
+              "https://discord.gg/b3QGgp4Nx4"
             ],
             "applicationCategory": "NavigationApplication",
             "operatingSystem": ["iOS", "Android"],
@@ -287,7 +287,7 @@ export default function Home({ isReferralLink = false }) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             {/* Join Discord Button */}
             <a 
-              href="https://discord.gg/v6GS9swS"
+              href="https://discord.gg/b3QGgp4Nx4"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 bg-gray-800/50 hover:bg-gray-700/60 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 transform hover:scale-105 w-48 sm:w-auto"
@@ -504,7 +504,7 @@ export default function Home({ isReferralLink = false }) {
                 <button onClick={handleGetStarted} className="px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200 text-center">
                   Get Started
                 </button>
-                <a href="https://discord.gg/v6GS9swS" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-transparent border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-xl transition-colors duration-200 text-center">
+                <a href="https://discord.gg/b3QGgp4Nx4" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-transparent border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-xl transition-colors duration-200 text-center">
                   Join Community
                 </a>
               </div>
@@ -640,7 +640,7 @@ export default function Home({ isReferralLink = false }) {
               
               {/* Action Button */}
               <div className="pt-4">
-                <a href="https://discord.gg/v6GS9swS" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200">
+                <a href="https://discord.gg/b3QGgp4Nx4" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200">
                   Join Discord
                 </a>
               </div>
