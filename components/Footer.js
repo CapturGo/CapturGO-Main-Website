@@ -28,14 +28,31 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="mb-4">
+              {/* Desktop Logo */}
               <Image 
                 src="/images/logo.svg" 
                 alt="capturGO Logo" 
                 width={120} 
                 height={40}
-                className="h-12"
+                className="h-12 hidden md:block"
                 style={{ width: 'auto' }}
                 quality={100}
+              />
+              {/* Mobile Logo */}
+              <Image 
+                src="/images/MobileLogo.png" 
+                alt="capturGO Logo" 
+                width={256} 
+                height={256}
+                className="h-8 md:hidden"
+                style={{ 
+                  width: 'auto',
+                  imageRendering: 'crisp-edges'
+                }}
+                priority
+                quality={100}
+                sizes="(max-width: 768px) 128px, 64px"
+                unoptimized={true}
               />
             </div>
             <p className="text-gray-400 max-w-md mb-4">
