@@ -1,11 +1,34 @@
 import { createClient } from '@supabase/supabase-js'
+import { RateLimiter } from '../../../lib/security'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
+// Create rate limiter instance
+const rateLimiter = new RateLimiter();
+
+// Rate limiting configuration
+const RATE_LIMIT_REQUESTS = 20; // 20 requests per window
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+
+function getRateLimitKey(req) {
+  return req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Rate limiting
+  const rateLimitKey = getRateLimitKey(req);
+  const rateLimitResult = rateLimiter.check(rateLimitKey, RATE_LIMIT_REQUESTS, RATE_LIMIT_WINDOW);
+  
+  if (!rateLimitResult.allowed) {
+    return res.status(429).json({ 
+      error: 'Too many requests. Please try again later.',
+      resetTime: rateLimitResult.resetTime
+    });
   }
 
 

@@ -17,9 +17,25 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }) {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [resetEmail, setResetEmail] = useState('');
   const [resetMessage, setResetMessage] = useState('');
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const [lastResetTime, setLastResetTime] = useState(0);
 
   const handlePasswordReset = async (e) => {
     e.preventDefault();
+    
+    // Rate limiting for password reset - 1 request per 60 seconds
+    const now = Date.now();
+    const timeSinceLastReset = now - lastResetTime;
+    const resetCooldown = 60000; // 60 seconds
+    
+    if (timeSinceLastReset < resetCooldown) {
+      const remainingTime = Math.ceil((resetCooldown - timeSinceLastReset) / 1000);
+      setError(`Please wait ${remainingTime} seconds before requesting another password reset`);
+      return;
+    }
+    
+    setLastResetTime(now);
     setIsLoading(true);
     setError('');
     setResetMessage('');
@@ -49,6 +65,19 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Rate limiting - progressive delays based on failed attempts
+    const now = Date.now();
+    const timeSinceLastSubmit = now - lastSubmitTime;
+    const requiredDelay = Math.min(3000 + (failedAttempts * 2000), 30000); // 3s base, +2s per failure, max 30s
+    
+    if (timeSinceLastSubmit < requiredDelay) {
+      const remainingTime = Math.ceil((requiredDelay - timeSinceLastSubmit) / 1000);
+      setError(`Please wait ${remainingTime} seconds before trying again`);
+      return;
+    }
+    
+    setLastSubmitTime(now);
     setIsLoading(true);
     setError('');
 
@@ -88,7 +117,10 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }) {
 
       if (error) {
         setError(error.message);
+        setFailedAttempts(prev => prev + 1);
       } else {
+        // Reset failed attempts on successful login
+        setFailedAttempts(0);
         onClose();
         router.push('/profile');
         setEmail('');
@@ -96,6 +128,7 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }) {
       }
     } catch (err) {
       setError('An unexpected error occurred');
+      setFailedAttempts(prev => prev + 1);
     } finally {
       setIsLoading(false);
     }

@@ -20,16 +20,33 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="hover:opacity-80 transition-opacity">
+              {/* Desktop Logo */}
               <Image 
                 src="/images/logo.svg" 
                 alt="capturGO Logo" 
                 width={192} 
                 height={64}
-                className="h-8"
+                className="h-8 hidden md:block"
                 style={{ width: 'auto' }}
                 priority
                 quality={100}
-                sizes="(max-width: 768px) 192px, 96px"
+                sizes="96px"
+              />
+              {/* Mobile Logo */}
+              <Image 
+                src="/images/MobileLogo.png" 
+                alt="capturGO Logo" 
+                width={512} 
+                height={512}
+                className="h-10 md:hidden"
+                style={{ 
+                  width: 'auto',
+                  imageRendering: 'crisp-edges'
+                }}
+                priority
+                quality={100}
+                sizes="(max-width: 768px) 128px, 64px"
+                unoptimized={true}
               />
             </Link>
           </div>
@@ -48,6 +65,12 @@ export default function Navigation() {
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 Features
+              </Link>
+              <Link 
+                href="/partners" 
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Partners
               </Link>
               <Link 
                 href="/#leaderboard" 
@@ -126,6 +149,13 @@ export default function Navigation() {
                 onClick={() => setIsOpen(false)}
               >
                 Features
+              </Link>
+              <Link 
+                href="/partners" 
+                className="text-gray-300 hover:text-white transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Partners
               </Link>
               <Link 
                 href="/#leaderboard" 

@@ -40,6 +40,7 @@ export default function Home({ isReferralLink = false }) {
   const { user, loading } = useAuth();
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
   const [isReferralLinkState, setIsReferralLinkState] = useState(isReferralLink);
 
   // Handle password recovery tokens and referral links
@@ -89,12 +90,7 @@ export default function Home({ isReferralLink = false }) {
   };
   
   const handleGetStarted = () => {
-    if (user) {
-      setShowLoggedInPopup(true);
-      setTimeout(() => setShowLoggedInPopup(false), 3000);
-    } else {
-      setShowSignUp(true);
-    }
+    setShowDownloadModal(true);
   };
   
   const faqs = [
@@ -292,7 +288,7 @@ export default function Home({ isReferralLink = false }) {
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 bg-gray-800/50 hover:bg-gray-700/60 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 transform hover:scale-105 w-48 sm:w-auto"
             >
-              <span className="text-white font-semibold text-base sm:text-lg">Join Discord</span>
+              <span className="text-white font-semibold text-base sm:text-lg">Join Community</span>
               <div className="w-7 sm:w-8 h-7 sm:h-8 bg-transparent border border-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                 <svg className="w-3 sm:w-4 h-3 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
@@ -305,7 +301,7 @@ export default function Home({ isReferralLink = false }) {
               onClick={handleGetStarted}
               className="group flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 bg-gray-800/50 hover:bg-gray-700/60 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 transform hover:scale-105 w-48 sm:w-auto"
             >
-              <span className="text-white font-semibold text-base sm:text-lg">Get Started</span>
+              <span className="text-white font-semibold text-base sm:text-lg">Download App</span>
               <div className="w-7 sm:w-8 h-7 sm:h-8 bg-transparent border border-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                 <svg className="w-3 sm:w-4 h-3 sm:h-4 text-white transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -502,7 +498,7 @@ export default function Home({ isReferralLink = false }) {
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <button onClick={handleGetStarted} className="px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200 text-center">
-                  Get Started
+                  Download App
                 </button>
                 <a href="https://discord.gg/b3QGgp4Nx4" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-transparent border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-xl transition-colors duration-200 text-center">
                   Join Community
@@ -641,7 +637,7 @@ export default function Home({ isReferralLink = false }) {
               {/* Action Button */}
               <div className="pt-4">
                 <a href="https://discord.gg/b3QGgp4Nx4" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-[#935EFF] hover:bg-[#7B4FE6] text-white font-semibold rounded-xl transition-colors duration-200">
-                  Join Discord
+                  Join Community
                 </a>
               </div>
 
@@ -808,6 +804,59 @@ export default function Home({ isReferralLink = false }) {
           setShowSignUp(true);
         }}
       />
+
+      {/* Download Modal */}
+      {showDownloadModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-gray-900 rounded-2xl p-8 max-w-md w-full mx-4 border border-gray-700">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-white mb-4">Download CapturGO</h3>
+              <p className="text-gray-300 mb-8">Choose your platform to download the app</p>
+              
+              <div className="space-y-4">
+                {/* iOS Button */}
+                <a
+                  href="https://testflight.apple.com/join/nCcrMvFA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-full px-6 py-4 bg-gray-800 hover:bg-gray-700 rounded-xl border border-gray-600 hover:border-gray-500 transition-all duration-200 group"
+                >
+                  <div className="flex items-center space-x-3">
+                    <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div className="text-left">
+                      <div className="text-white font-semibold">Download for iOS</div>
+                      <div className="text-gray-400 text-sm">Available on TestFlight</div>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Android Button - Coming Soon */}
+                <div className="flex items-center justify-center w-full px-6 py-4 bg-gray-800/50 rounded-xl border border-gray-600 opacity-60 cursor-not-allowed">
+                  <div className="flex items-center space-x-3">
+                    <svg className="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1518-.5972.416.416 0 00-.5972.1518l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1333 1.0989L4.8442 5.4467a.4161.4161 0 00-.5972-.1518.416.416 0 00-.1518.5972L6.0927 9.321C3.7385 10.7446 2.25 13.0249 2.25 15.6h19.5c0-2.5751-1.4885-4.8554-3.8427-6.2786z"/>
+                    </svg>
+                    <div className="text-left">
+                      <div className="text-gray-400 font-semibold">Download for Android</div>
+                      <div className="text-gray-500 text-sm">Coming Soon</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowDownloadModal(false)}
+                className="mt-6 px-6 py-2 text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Logged In Popup */}
       {showLoggedInPopup && (
