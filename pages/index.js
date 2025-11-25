@@ -263,15 +263,31 @@ export default function Home({ isReferralLink = false }) {
                 <span className="animate-fade-in-up">Navigate, Share, and Earn with</span>
               </h1>
               <div className="animate-fade-in-up animation-delay-200">
+                {/* Desktop Logo */}
                 <Image 
                   src="/images/capturGO.svg" 
                   alt="capturGO" 
                   width={448}
                   height={112}
-                  className="h-8 sm:h-10 lg:h-12 xl:h-14 w-auto mx-auto"
+                  className="h-8 sm:h-10 lg:h-12 xl:h-14 w-auto mx-auto hidden md:block"
                   priority
                   quality={100}
                   sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, (max-width: 1280px) 384px, 448px"
+                />
+                {/* Mobile Logo */}
+                <Image 
+                  src="/images/MobileHeaderLogo.png" 
+                  alt="capturGO" 
+                  width={512}
+                  height={512}
+                  className="h-8 sm:h-10 w-auto mx-auto md:hidden"
+                  style={{ 
+                    imageRendering: 'crisp-edges'
+                  }}
+                  priority
+                  quality={100}
+                  sizes="(max-width: 640px) 128px, 256px"
+                  unoptimized={true}
                 />
               </div>
             </div>
