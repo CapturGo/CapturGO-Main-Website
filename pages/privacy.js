@@ -5,18 +5,18 @@ export default function Privacy() {
   return (
     <>
       <Head>
-        <title>Privacy Policy - capturGO | Captur Network Data Protection & Privacy Rights</title>
+        <title>Privacy Policy - capturGO | Data Protection & Privacy Rights</title>
         <meta name="description" content="capturGO Privacy Policy by Captur Labs Limited. Learn how we protect your location data, ensure privacy in our decentralized GPS app, and handle your personal information securely. GDPR compliant." />
         <meta name="keywords" content="capturGO privacy policy, Captur privacy, location data privacy, GPS app privacy, decentralized navigation privacy, DePIN privacy, blockchain privacy, data protection, GDPR compliance" />
         
         <link rel="canonical" href="https://capturgo.com/privacy" />
         
-        <meta property="og:title" content="Privacy Policy - capturGO | Captur Network Data Protection" />
+        <meta property="og:title" content="Privacy Policy - capturGO | Data Protection" />
         <meta property="og:description" content="capturGO Privacy Policy by Captur Labs Limited. Learn how we protect your location data and ensure privacy in our decentralized GPS navigation app." />
         <meta property="og:url" content="https://capturgo.com/privacy" />
         <meta property="og:type" content="article" />
         
-        <meta name="twitter:title" content="Privacy Policy - capturGO | Captur Network Data Protection" />
+        <meta name="twitter:title" content="Privacy Policy - capturGO | Data Protection" />
         <meta name="twitter:description" content="capturGO Privacy Policy by Captur Labs Limited. Learn how we protect your location data and ensure privacy in our decentralized GPS navigation app." />
         
         <meta name="robots" content="index, follow" />

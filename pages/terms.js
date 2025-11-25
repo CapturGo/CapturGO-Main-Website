@@ -5,18 +5,18 @@ export default function Terms() {
   return (
     <>
       <Head>
-        <title>Terms and Conditions - capturGO | Captur Network User Agreement & Service Terms</title>
+        <title>Terms and Conditions - capturGO | User Agreement & Service Terms</title>
         <meta name="description" content="capturGO Terms and Conditions by Captur Labs Limited. User agreement for our decentralized GPS navigation app, DePIN rewards system, and location data sharing platform. Legal terms of service." />
         <meta name="keywords" content="capturGO terms, Captur terms of service, GPS app terms, decentralized navigation terms, DePIN terms, blockchain app agreement, user agreement, service terms, legal terms" />
         
         <link rel="canonical" href="https://capturgo.com/terms" />
         
-        <meta property="og:title" content="Terms and Conditions - capturGO | Captur Network User Agreement" />
+        <meta property="og:title" content="Terms and Conditions - capturGO | User Agreement" />
         <meta property="og:description" content="capturGO Terms and Conditions by Captur Labs Limited. User agreement for our decentralized GPS navigation app and DePIN rewards system." />
         <meta property="og:url" content="https://capturgo.com/terms" />
         <meta property="og:type" content="article" />
         
-        <meta name="twitter:title" content="Terms and Conditions - capturGO | Captur Network User Agreement" />
+        <meta name="twitter:title" content="Terms and Conditions - capturGO | User Agreement" />
         <meta name="twitter:description" content="capturGO Terms and Conditions by Captur Labs Limited. User agreement for our decentralized GPS navigation app and DePIN rewards system." />
         
         <meta name="robots" content="index, follow" />

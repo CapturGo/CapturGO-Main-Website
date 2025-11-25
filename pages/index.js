@@ -123,8 +123,8 @@ export default function Home({ isReferralLink = false }) {
   return (
     <>
       <Head>
-        <title>capturGO - Decentralized GPS Navigation App | Captur Network | Earn Rewards for Real-Time Traffic Data</title>
-        <meta name="description" content="capturGO by Captur Network - Revolutionary decentralized GPS navigation app. Earn crypto rewards for sharing real-time traffic data, incident reports & location intelligence. Community-powered navigation with DePIN technology. Join the future of smart mobility." />
+        <title>capturGO - Decentralized GPS Navigation App | Earn Crypto Rewards for Real-Time Traffic Data</title>
+        <meta name="description" content="capturGO - Revolutionary decentralized GPS navigation app. Earn crypto rewards for sharing real-time traffic data, incident reports & location intelligence. Community-powered navigation with DePIN technology. Join the future of smart mobility." />
         
         {/* SEO Keywords */}
         <meta name="keywords" content="capturGO, Captur, Captur Network, decentralized GPS, navigation app, DePIN, crypto rewards, traffic data, real-time navigation, community navigation, blockchain GPS, earn crypto driving, location data rewards, smart mobility, Web3 navigation, decentralized mapping, traffic intelligence, road incident reporting, GPS rewards app, location sharing rewards, driving rewards, navigation rewards, crypto GPS, blockchain navigation, DePIN navigation, decentralized location data" />
@@ -139,7 +139,7 @@ export default function Home({ isReferralLink = false }) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://capturgo.com" />
         <meta property="og:title" content={isReferralLink ? "Join CapturGO with my referral code!" : "capturGO - Decentralized GPS Navigation App | Earn Crypto Rewards"} />
-        <meta property="og:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!" : "Revolutionary decentralized GPS navigation app by Captur Network. Earn crypto rewards for sharing real-time traffic data and location intelligence. Join the future of community-powered navigation."} />
+        <meta property="og:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!" : "Revolutionary decentralized GPS navigation app. Earn crypto rewards for sharing real-time traffic data and location intelligence. Join the future of community-powered navigation with capturGO."} />
         <meta property="og:image" content={isReferralLink ? "https://capturgo.com/images/ReferalSocial.png" : "https://capturgo.com/images/logo.svg"} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -150,7 +150,7 @@ export default function Home({ isReferralLink = false }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://capturgo.com" />
         <meta name="twitter:title" content={isReferralLink ? "Join CapturGO with my referral code!" : "capturGO - Decentralized GPS Navigation App | Earn Crypto Rewards"} />
-        <meta name="twitter:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!" : "Revolutionary decentralized GPS navigation app by Captur Network. Earn crypto rewards for sharing real-time traffic data and location intelligence."} />
+        <meta name="twitter:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!" : "Revolutionary decentralized GPS navigation app. Earn crypto rewards for sharing real-time traffic data and location intelligence with capturGO."} />
         <meta name="twitter:image" content={isReferralLink ? "https://capturgo.com/images/ReferalSocial.png" : "https://capturgo.com/images/logo.svg"} />
         <meta name="twitter:creator" content="@captur_go" />
         <meta name="twitter:site" content="@captur_go" />
@@ -158,7 +158,7 @@ export default function Home({ isReferralLink = false }) {
         {/* Additional SEO */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="author" content="Captur Labs Limited" />
-        <meta name="publisher" content="Captur Network" />
+        <meta name="publisher" content="capturGO" />
         <meta name="copyright" content="© 2025 Captur Labs Limited. All rights reserved." />
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
@@ -182,7 +182,7 @@ export default function Home({ isReferralLink = false }) {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "capturGO",
-            "alternateName": ["Captur", "Captur Network", "CapturGO"],
+            "alternateName": ["CapturGO", "Captur"],
             "description": "Revolutionary decentralized GPS navigation app that rewards users for sharing real-time traffic data and location intelligence",
             "url": "https://capturgo.com",
             "sameAs": [
@@ -201,7 +201,7 @@ export default function Home({ isReferralLink = false }) {
             "publisher": {
               "@type": "Organization",
               "name": "Captur Labs Limited",
-              "alternateName": "Captur Network",
+              "alternateName": "capturGO",
               "url": "https://capturgo.com",
               "logo": "https://capturgo.com/images/logo.svg"
             },
