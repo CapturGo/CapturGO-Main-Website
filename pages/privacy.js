@@ -1,6 +1,425 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
+// ===== PRIVACY CONTENT - EASY TO UPDATE =====
+const PRIVACY_CONTENT = `
+CapturGO Privacy Policy
+Last updated: November 28, 2025
+Captur Labs Limited ("Captur Labs," "CapturGO," "we," "us," or "our") is building a user-owned mobility and mapping network powered by encrypted movement signals from smartphones.
+This Privacy Policy explains how we collect, use, share, and protect information when you use:
+the CapturGO mobile applications on iOS and Android (the "App"),
+
+
+our website (the "Site"), and
+
+
+our online documentation and other web pages, including GitBook (together with the App and Site, the "Services").
+
+
+By accessing or using the Services, you agree to the practices described in this Privacy Policy.
+If you do not agree, please do not use the Services.
+
+
+1. Information We Collect
+We only collect information needed to operate the CapturGO Network and improve the Services.
+1.1 Information You Provide to Us
+We may collect the information you choose to provide directly, such as:
+Account details – email address, username, referral code, profile image, and password (stored in hashed form).
+
+
+Wallet information – blockchain wallet address(es), including any abstracted or embedded wallet we create for you to receive rewards. We never collect your private keys or recovery phrases.
+
+
+Reports and contributions – incident descriptions, traffic or road reports, POI (point of interest) confirmations, text comments, ratings, or other content you submit.
+
+
+Photos and media – storefront, landmark, or street photos you voluntarily capture in the App for POI verification or incident reporting.
+
+
+Support communications – messages, attachments, and contact details you send when you contact us (email, in-app support, or social channels).
+
+
+We do not request or store your passwords to third-party services, secret recovery phrases, or government ID documents.
+
+
+1.2 Information Collected Automatically
+When you use the Services, we automatically collect certain technical and usage information.
+(a) Location & Mobility Signals
+With your permission, the App may collect precise location data, such as:
+GPS coordinates
+
+
+speed, direction (bearing), and movement patterns
+
+
+timestamps of trips
+
+
+road activity signals (e.g., slowdowns, congestion patterns, closures)
+
+
+Location data may be collected while the app is open and, if you enable it, in the background to support passive contribution and real-time traffic understanding.
+(b) Device & Network Data
+We may also collect:
+device type, operating system, language, and timezone
+
+
+IP address and app version
+
+
+nearby cellular towers, Wi-Fi networks, or Bluetooth beacons (identifiers and signal strength)
+
+
+diagnostic information (crash reports, logs, performance data)
+
+
+(c) Camera & Media (Android CAMERA Permission / iOS Camera Access)
+If you grant permission, the App can access your device camera only when you choose to:
+take a photo of a storefront, landmark, or sign to verify a POI; or
+
+
+attach a photo to an incident or road report.
+
+
+We do not access your camera in the background or without your action. You can deny camera permission; core movement-based contribution will still function.
+(d) Usage & Analytics Data
+We collect anonymized or pseudonymized information about:
+how often you open the App
+
+
+which features you use
+
+
+your CAPT Points earning activity
+
+
+screens viewed and general session activity
+
+
+This helps us understand how the network is used and how to improve it.
+
+
+2. What We Do Not Collect
+As part of our "privacy by design" approach, CapturGO is built to avoid unnecessary personal data.
+We do not:
+collect your phone contacts, SMS content, or personal files
+
+
+collect or store your secret recovery phrases or private keys
+
+
+ask for credit card numbers or bank login details inside the App
+
+
+publicly display your trip history or exact start/end locations
+
+
+sell your personal data for advertising
+
+
+If we ever need to collect additional categories of data in the future, we will update this Policy and request any required consent.
+
+
+3. How We Use Your Information
+We may use the information we collect for the following purposes:
+Provide and operate the Services
+
+
+power navigation and mobility features
+
+
+update maps, POIs, and traffic layers
+
+
+compute CAPT Points and rewards
+
+
+Maintain and improve the CapturGO Network
+
+
+train and refine mobility and traffic models
+
+
+measure POI freshness and road changes at a hex-cell level
+
+
+verify and validate contributions by comparing aggregated, anonymous signals
+
+
+Rewards and blockchain interactions
+
+
+allocate and update CAPT Points
+
+
+convert points to digital assets (e.g., $CAPT tokens) when available
+
+
+send rewards to your wallet, including wallets created via wallet abstraction
+
+
+Security, integrity, and fraud prevention
+
+
+detect and prevent spam or fraudulent contribution patterns
+
+
+protect the network from abuse, cheating, or manipulation
+
+
+Customer support and communication
+
+
+respond to your questions and support requests
+
+
+send important service notices and policy updates
+
+
+Analytics and product development
+
+
+understand how different features are used
+
+
+improve UX, performance, and reliability
+
+
+Legal and compliance purposes
+
+
+comply with applicable laws and regulations
+
+
+enforce our Terms of Use and other agreements
+
+
+respond to lawful requests from authorities where required
+
+
+Where required by law (for example, under GDPR), we rely on legal bases such as contractual necessity, legitimate interests, consent, and legal obligation to process your data.
+
+
+4. How We Protect Your Privacy
+CapturGO includes multiple privacy protections by design:
+Pseudonymous accounts: contributions are linked to account IDs or wallet addresses, not your real-world identity.
+
+
+Anonymized movement data: location traces are stripped of direct identifiers and processed at the hex-cell or aggregate level wherever possible.
+
+
+Start/end-point protection: we avoid using exact starting and ending segments of trips to reduce the chance of exposing sensitive locations (e.g., home or workplace).
+
+
+Privacy zones: in future versions, you may configure certain areas (like your home) as "privacy zones" where data collection is paused.
+
+
+On-device and in-transit security: data is encrypted in transit (HTTPS/TLS). Where applicable, we use encryption and access controls for data at rest.
+
+
+No system is perfectly secure, but we use commercially reasonable safeguards to protect your information.
+
+
+5. How We Share Information
+We do not sell personal information. We may share information in the following limited ways:
+Service Providers
+
+ With trusted vendors who perform services on our behalf (e.g., cloud hosting, analytics, messaging, customer support). They are bound by contractual obligations to protect your data and use it only as instructed.
+
+
+Aggregated & Anonymized Data
+
+ We may share aggregated mobility patterns, traffic information, and POI freshness data with partners (e.g., businesses, cities, mobility researchers). These datasets do not identify individual users.
+
+
+Blockchain Networks
+
+ When we distribute rewards on-chain, transaction details (such as wallet address and token amount) may be recorded on a public, immutable ledger. Blockchain data is publicly visible but pseudonymous.
+
+
+Business Transfers
+
+ In connection with a merger, acquisition, financing, or sale of assets, your information may be transferred as part of that transaction, subject to confidentiality obligations.
+
+
+Legal Requirements and Protection of Rights
+
+ We may disclose information if required by law, court order, or legal process, or if we believe disclosure is necessary to protect our rights, your safety, or the safety of others.
+
+
+With Your Consent
+
+ We may share information for any other purpose disclosed to you and with your consent.
+
+
+
+
+6. Cookies and Analytics
+On the Site and GitBook documentation, we may use cookies, local storage, and similar technologies to:
+keep you logged in
+
+
+remember your preferences
+
+
+understand how visitors use our pages
+
+
+improve content and design
+
+
+We may use third-party analytics providers (such as Google Analytics or similar tools). You can usually control cookies through your browser settings, but disabling them may affect some features.
+
+
+7. Data Retention
+We retain information only for as long as needed for the purposes described in this Policy:
+Raw mobility and sensor data – kept for a limited period (for example, up to 90 days) before being aggregated, anonymized, or deleted, unless needed for security or investigation.
+
+
+Account and rewards data – kept while your account is active and for a reasonable period afterward for record-keeping and legal purposes.
+
+
+Blockchain records – rewards written to a public blockchain may be permanent and cannot be altered by us.
+
+
+We may retain de-identified or aggregated data indefinitely.
+
+
+8. International Transfers
+Captur Labs is headquartered in Hong Kong and may process data in multiple countries.
+If you access the Services from another region, your information may be transferred to and processed in jurisdictions that may have different data protection laws than your own.
+Where required, we use appropriate safeguards (such as standard contractual clauses) for international data transfers.
+
+
+9. Your Rights and Choices
+Depending on your jurisdiction, you may have rights regarding your personal information, including to:
+access or obtain a copy of your data;
+
+
+request correction of inaccurate data;
+
+
+request deletion of your data (subject to legal retention requirements);
+
+
+object to or restrict certain processing;
+
+
+withdraw consent where processing is based on consent;
+
+
+opt-out of marketing communications.
+
+
+To exercise these rights, contact us at privacy@capturgo.com.
+We may need to verify your identity before processing your request.
+You can also control certain permissions directly on your device:
+Location services: you can enable, disable, or limit location access (e.g., "While Using the App" vs. "Always"). Disabling precise or background location will reduce or stop contribution-based rewards and certain features.
+
+
+Camera: you can revoke camera permission at any time. You will still be able to use most movement-based features, but you will not be able to submit photos.
+
+
+
+
+10. Children's Privacy
+The Services are not directed to children under the age of 16, and we do not knowingly collect personal information from children.
+If we learn that a child under 16 has provided personal data, we will delete it as soon as reasonably possible.
+
+
+11. Third-Party Links and Services
+The Services may link to or integrate with third-party services such as:
+map providers
+
+
+crypto wallets or exchanges
+
+
+social media platforms
+
+
+analytics tools or SDKs
+
+
+These third parties have their own privacy policies and data practices, which we do not control. We encourage you to review them before using those services.
+
+
+12. Changes to This Privacy Policy
+We may update this Privacy Policy from time to time.
+If we make material changes, we will notify you by:
+updating the "Last Updated" date at the top;
+
+
+providing in-app or on-site notice; or
+
+
+sending an email, where appropriate.
+
+
+Your continued use of the Services after the updated Policy becomes effective means you accept the changes.
+
+
+13. Contact Us
+If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
+Captur Labs Limited
+Email: privacy@capturgo.com
+`;
+
+// Function to convert plain text to JSX with proper formatting
+function formatPrivacyContent(content) {
+  return content.split('\n').map((line, index) => {
+    // Empty lines
+    if (line.trim() === '') {
+      return <br key={index} />;
+    }
+    
+    // Main title - Reasonable size
+    if (line.includes('CapturGO Privacy Policy')) {
+      return <h1 key={index} className="text-3xl sm:text-4xl font-bold text-white mb-2">{line}</h1>;
+    }
+    
+    // Last updated
+    if (line.includes('Last updated:')) {
+      return <p key={index} className="text-gray-400 text-sm mb-4">{line}</p>;
+    }
+    
+    // Main section headers (numbered like "1. ", "2. ") - Moderate size
+    if (/^\d+\.\s/.test(line.trim()) && !/^\d+\.\d+/.test(line.trim())) {
+      return <h2 key={index} className="text-2xl font-bold text-white mt-6 mb-2 border-b border-gray-700 pb-1">{line}</h2>;
+    }
+    
+    // Subsection headers (numbered with decimal like "1.1", "1.2") - Smaller
+    if (/^\d+\.\d+/.test(line.trim())) {
+      return <h3 key={index} className="text-xl font-semibold text-white mt-4 mb-1">{line}</h3>;
+    }
+    
+    // Subsection headers with letters like "(a)", "(b)"
+    if (/^\([a-z]\)/.test(line.trim())) {
+      return <h4 key={index} className="text-lg font-semibold text-white mt-3 mb-1">{line}</h4>;
+    }
+    
+    // Contact email - Make it stand out
+    if (line.includes('privacy@capturgo.com')) {
+      return (
+        <p key={index} className="text-gray-300 mb-2">
+          {line.replace('privacy@capturgo.com', '')}
+          <a href="mailto:privacy@capturgo.com" className="text-[#935EFF] hover:text-[#7B4FE6] font-semibold text-lg transition-colors">
+            privacy@capturgo.com
+          </a>
+        </p>
+      );
+    }
+    
+    // Important intro paragraphs - Slightly emphasized
+    if (line.includes('This Privacy Policy explains') || line.includes('By accessing or using') || line.includes('If you do not agree')) {
+      return <p key={index} className="text-gray-200 mb-2 font-medium">{line}</p>;
+    }
+    
+    // Regular paragraphs
+    return <p key={index} className="text-gray-300 mb-2">{line}</p>;
+  });
+}
+
 export default function Privacy() {
   return (
     <>
@@ -48,125 +467,10 @@ export default function Privacy() {
 
         {/* Content */}
         <div className="pt-24 pb-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8 sm:p-12">
-              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-8">Privacy Policy</h1>
-              
               <div className="prose prose-invert prose-lg max-w-none">
-                <p className="text-gray-300 text-lg mb-8">
-                  Captur Labs Limited. ("Captur," "we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use the Captur Go mobile application and related services (collectively, the "Services"). By using our Services, you consent to the practices described below.
-                </p>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">1. Information We Collect</h2>
-                
-                <h3 className="text-xl font-semibold text-white mt-8 mb-4">1.1 Information You Provide Actively</h3>
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li><strong className="text-white">Account Details.</strong> Email address, username, wallet address, or referral code if you create an account or link a blockchain wallet.</li>
-                  <li><strong className="text-white">User Reports.</strong> Incident descriptions, photographs, voice notes, text comments, or other content you submit manually.</li>
-                  <li><strong className="text-white">Support Inquiries.</strong> Messages, attachments, or contact details you send to our support channels.</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-white mt-8 mb-4">1.2 Information Collected Automatically</h3>
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li><strong className="text-white">Location Data.</strong> Precise GPS coordinates, movement speed, bearing, altitude, and timestamps while the App is running (foreground or background).</li>
-                  <li><strong className="text-white">Device Signals.</strong> Cellular tower IDs, Wi‑Fi SSIDs/BSSIDs, Bluetooth beacons, and signal strength metadata.</li>
-                  <li><strong className="text-white">Sensor Data.</strong> Accelerometer, gyroscope, magnetometer, and barometer readings to detect driving context and road conditions.</li>
-                  <li><strong className="text-white">Usage Data.</strong> Log files, crash reports, in‑app interactions, and reward transaction history.</li>
-                  <li><strong className="text-white">Device Information.</strong> OS version, device model, advertising identifiers, language, and time‑zone.</li>
-                </ul>
-                <p className="text-gray-300 mb-6">
-                  We collect only the minimum sensor readings required for navigation intelligence and pseudonymize or aggregate data at the edge whenever feasible.
-                </p>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">2. How We Use Your Information</h2>
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li><strong className="text-white">Navigation & Routing.</strong> Generate real‑time directions, traffic congestion maps, and incident alerts.</li>
-                  <li><strong className="text-white">Network Intelligence.</strong> Train AI models to infer road speed, signal coverage, and environmental patterns for DePIN analytics.</li>
-                  <li><strong className="text-white">Rewards & Gamification.</strong> Calculate contribution scores, distribute points/tokens, and prevent fraud.</li>
-                  <li><strong className="text-white">Service Improvement.</strong> Diagnose crashes, optimize performance, and enhance user experience.</li>
-                  <li><strong className="text-white">Research & Insights.</strong> Produce anonymized trend reports for municipalities, advertisers, or mobility partners.</li>
-                  <li><strong className="text-white">Legal Compliance.</strong> Detect misuse, enforce Terms & Conditions, and satisfy regulatory obligations.</li>
-                </ul>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">3. Legal Bases for Processing (EEA & UK)</h2>
-                <p className="text-gray-300 mb-4">Where GDPR applies, we rely on:</p>
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li>Contractual Necessity (to provide the Services);</li>
-                  <li>Legitimate Interests (network optimization, research, fraud prevention);</li>
-                  <li>Consent (push notifications, marketing emails, precise background location for passive contribution where required);</li>
-                  <li>Legal Obligation (tax, accounting, law‑enforcement requests).</li>
-                </ul>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">4. How We Share Information</h2>
-                <p className="text-gray-300 mb-4">We keep sharing simple, purpose‑driven, and tightly controlled:</p>
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li><strong className="text-white">Essential Service Providers.</strong> Trusted cloud, security, and analytics vendors that operate our core infrastructure under strict data‑processing agreements.</li>
-                  <li><strong className="text-white">Aggregated Insight Partners.</strong> City planners, advertisers, and mobility platforms receive only fully anonymized and aggregated statistics—never raw or identifiable data.</li>
-                  <li><strong className="text-white">Public Blockchain Records.</strong> When you earn token rewards, the on‑chain transaction records only your pseudonymous wallet address and token amount.</li>
-                  <li><strong className="text-white">Legal or Compliance Disclosures.</strong> Courts or regulators may receive specific data when legally required; we push back on over‑broad requests.</li>
-                  <li><strong className="text-white">Corporate Events.</strong> In a merger, acquisition, or financing, limited data may be shared under confidentiality agreements.</li>
-                </ul>
-                <p className="text-gray-300 mb-6">
-                  We never sell personal information for direct marketing.
-                </p>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">5. Data Retention</h2>
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li>Raw location and sensor logs are rotated or aggregated within 90 days unless extended for fraud investigations.</li>
-                  <li>Reward transaction data stored on decentralized ledgers may be immutable and retained indefinitely.</li>
-                  <li>Account information persists until you request deletion or after 24 months of inactivity.</li>
-                </ul>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">6. International Transfers</h2>
-                <p className="text-gray-300 mb-6">
-                  Captur's servers are located in the United States. We may transfer data to countries that may not offer the same level of protection as your jurisdiction. Where required, we implement Standard Contractual Clauses or equivalent safeguards.
-                </p>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">7. Security</h2>
-                <p className="text-gray-300 mb-6">
-                  We employ AES‑256 encryption at rest, TLS 1.3 in transit, strict access controls, and on‑device data minimization. No method of transmission is 100% secure; therefore, we cannot guarantee absolute security.
-                </p>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">8. Your Choices & Rights</h2>
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li><strong className="text-white">Location Permissions.</strong> You can disable precise or background location in your OS settings (may limit functionality and Rewards).</li>
-                  <li><strong className="text-white">Opt‑Out of Marketing.</strong> Unsubscribe links in emails or in‑app settings.</li>
-                  <li><strong className="text-white">Access & Deletion.</strong> Request a copy or deletion of your personal data via privacy@capturnetwork.xyz.</li>
-                  <li><strong className="text-white">Corrections & Portability.</strong> Amend inaccurate data or request export in a structured, machine‑readable format.</li>
-                  <li><strong className="text-white">Withdraw Consent.</strong> Where processing is based on consent, you may withdraw at any time.</li>
-                </ul>
-                <p className="text-gray-300 mb-6">
-                  Residents of California, EEA, UK, Brazil, and other regions may have additional rights which we honor.
-                </p>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">9. Children's Privacy</h2>
-                <p className="text-gray-300 mb-6">
-                  The Services are not directed to children under 16. We do not knowingly collect personal data from minors. If we learn that a child has provided us with information, we will delete it promptly.
-                </p>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">10. Third‑Party Links & Services</h2>
-                <p className="text-gray-300 mb-6">
-                  The App may integrate maps, ads, or blockchain wallets governed by separate privacy policies. Captur is not responsible for third‑party data practices.
-                </p>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">11. Changes to This Policy</h2>
-                <p className="text-gray-300 mb-6">
-                  We may update this Policy periodically. We will notify users of material changes via in‑app notice or email. Continued use of the Services after changes take effect constitutes acceptance.
-                </p>
-
-                <h2 className="text-2xl font-bold text-white mt-12 mb-6">12. Contact Us</h2>
-                <p className="text-gray-300 mb-6">
-                  If you have questions or concerns about this Policy or our data practices, please contact our Data Protection Officer at:
-                </p>
-                <p className="text-gray-300 mb-6">
-                  <strong className="text-white">Email:</strong> <a href="mailto:privacy@capturGO.com" className="text-[#935EFF] hover:text-[#7B4FE6] transition-colors">privacy@capturGO.com</a>
-                </p>
-
-                <div className="mt-12 pt-8 border-t border-gray-700">
-                  <p className="text-gray-400 text-sm">
-                    Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </p>
-                </div>
+                {formatPrivacyContent(PRIVACY_CONTENT)}
               </div>
             </div>
           </div>
