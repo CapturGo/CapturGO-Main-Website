@@ -359,26 +359,42 @@ export default function Home({ isReferralLink = false }) {
             </div>
 
             {/* Logo Carousel */}
-            <div className="mt-16 sm:mt-20 lg:mt-24 overflow-hidden">
-              <div className="animate-scroll-infinite space-x-12">
-                <img src="/images/CV.svg" alt="CV Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/du.svg" alt="DU Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/CV.svg" alt="CV Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/du.svg" alt="DU Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/CV.svg" alt="CV Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/du.svg" alt="DU Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/CV.svg" alt="CV Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/du.svg" alt="DU Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                
-                {/* Exact duplicate for seamless loop */}
-                <img src="/images/CV.svg" alt="CV Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/du.svg" alt="DU Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/CV.svg" alt="CV Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/du.svg" alt="DU Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/CV.svg" alt="CV Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/du.svg" alt="DU Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/CV.svg" alt="CV Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
-                <img src="/images/du.svg" alt="DU Logo" className="h-12 opacity-60 hover:opacity-100 transition-opacity inline-block" />
+            <div className="mt-16 sm:mt-20 lg:mt-24">
+              {/* Trusted by heading */}
+              <div className="text-center mb-8">
+                <h3 className="text-lg sm:text-xl text-gray-400 font-medium">Trusted by</h3>
+              </div>
+              
+              <div className="overflow-hidden">
+                <div className="animate-scroll-infinite flex space-x-12 whitespace-nowrap">
+                  {/* First complete set */}
+                  <img src="/images/CV.svg" alt="CV Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/du.svg" alt="DU Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/here.svg" alt="HERE Technologies" className="h-12 w-auto object-contain flex-shrink-0" />
+                  <img src="/images/CV.svg" alt="CV Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/du.svg" alt="DU Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/here.svg" alt="HERE Technologies" className="h-12 w-auto object-contain flex-shrink-0" />
+                  <img src="/images/CV.svg" alt="CV Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/du.svg" alt="DU Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/here.svg" alt="HERE Technologies" className="h-12 w-auto object-contain flex-shrink-0" />
+                  <img src="/images/CV.svg" alt="CV Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/du.svg" alt="DU Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/here.svg" alt="HERE Technologies" className="h-12 w-auto object-contain flex-shrink-0" />
+                  
+                  {/* Exact duplicate for seamless loop */}
+                  <img src="/images/CV.svg" alt="CV Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/du.svg" alt="DU Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/here.svg" alt="HERE Technologies" className="h-12 w-auto object-contain flex-shrink-0" />
+                  <img src="/images/CV.svg" alt="CV Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/du.svg" alt="DU Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/here.svg" alt="HERE Technologies" className="h-12 w-auto object-contain flex-shrink-0" />
+                  <img src="/images/CV.svg" alt="CV Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/du.svg" alt="DU Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/here.svg" alt="HERE Technologies" className="h-12 w-auto object-contain flex-shrink-0" />
+                  <img src="/images/CV.svg" alt="CV Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/du.svg" alt="DU Logo" className="h-12 flex-shrink-0" />
+                  <img src="/images/here.svg" alt="HERE Technologies" className="h-12 w-auto object-contain flex-shrink-0" />
+                </div>
               </div>
             </div>
 
