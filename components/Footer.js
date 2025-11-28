@@ -11,7 +11,8 @@ export default function Footer() {
   useEffect(() => {
     const isProfilePage = router.pathname === '/profile';
     const isBlogPage = router.pathname === '/blog' || router.pathname.startsWith('/blog/');
-    setHideNewsletter(isProfilePage || isBlogPage);
+    const isPartnersPage = router.pathname === '/partners';
+    setHideNewsletter(isProfilePage || isBlogPage || isPartnersPage);
   }, [router.pathname]);
   
   return (
