@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -206,10 +207,13 @@ export default function Partners() {
                 </video>
                 {/* Overlay Image */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <img 
+                  <Image 
                     src="/images/overlayvideo.png" 
                     alt="Overlay" 
+                    width={512}
+                    height={320}
                     className="w-full h-full object-cover"
+                    priority
                   />
                 </div>
               </div>
@@ -224,30 +228,39 @@ export default function Partners() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             {/* Mapping & Geospatial Partners */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-dashed border-purple-500 p-6 hover:border-purple-400 transition-all duration-300 transform md:translate-y-0 flex flex-col min-h-96 animate-fade-in-up animation-delay-200 hover:scale-105">
-              <img 
+              <Image 
                 src="/images/Profile_Logo_Transparent.png" 
                 alt="Partner Logo" 
+                width={48}
+                height={48}
                 className="w-12 h-12 rounded-lg mb-6 object-contain"
+                priority
               />
               <h3 className="text-xl font-semibold text-purple-400 mb-3">Mapping & Geospatial Partners</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
                 HERE Technologies enhances CapturGO's real-time mobility layer with high-precision geospatial infrastructure. Together, we combine community-driven signals with enterprise-grade map intelligence.
               </p>
               <div className="flex justify-center mt-auto">
-                <img 
+                <Image 
                   src="/images/HERE_Logo_color_XXL_104px.png" 
                   alt="HERE Technologies Logo" 
+                  width={200}
+                  height={128}
                   className="h-32 object-contain"
+                  priority
                 />
               </div>
             </div>
 
             {/* Blockchain Infrastructure Partners */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-dashed border-purple-500 p-6 hover:border-purple-400 transition-all duration-300 transform md:translate-y-12 flex flex-col min-h-96 animate-fade-in-up animation-delay-400 hover:scale-105">
-              <img 
+              <Image 
                 src="/images/Profile_Logo_Transparent.png" 
                 alt="Partner Logo" 
+                width={48}
+                height={48}
                 className="w-12 h-12 rounded-lg mb-6 object-contain"
+                priority
               />
               <h3 className="text-xl font-semibold text-purple-400 mb-3">Blockchain Infra Partners</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
@@ -264,10 +277,13 @@ export default function Partners() {
 
             {/* Technology & Data Innovation Partners */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-dashed border-purple-500 p-6 hover:border-purple-400 transition-all duration-300 transform md:translate-y-24 flex flex-col min-h-96 animate-fade-in-up animation-delay-600 hover:scale-105">
-              <img 
+              <Image 
                 src="/images/Profile_Logo_Transparent.png" 
                 alt="Partner Logo" 
+                width={48}
+                height={48}
                 className="w-12 h-12 rounded-lg mb-6 object-contain"
+                priority
               />
               <h3 className="text-xl font-semibold text-purple-400 mb-3">Tech & Data Innovation Partners</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
@@ -301,7 +317,7 @@ export default function Partners() {
             {/* Logistics & Delivery */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                <img src="/images/logistics.png" alt="Logistics & Delivery" className="w-full h-full object-cover" />
+                <Image src="/images/logistics.png" alt="Logistics & Delivery" width={400} height={192} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-4">Logistics & Delivery</h3>
               <p className="text-gray-300 leading-relaxed">
@@ -312,7 +328,7 @@ export default function Partners() {
             {/* Ridesharing & Mobility Services */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                <img src="/images/ridesharing.png" alt="Ridesharing & Mobility Services" className="w-full h-full object-cover" />
+                <Image src="/images/ridesharing.png" alt="Ridesharing & Mobility Services" width={400} height={192} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-4">Ridesharing & Mobility Services</h3>
               <p className="text-gray-300 leading-relaxed">
@@ -323,7 +339,7 @@ export default function Partners() {
             {/* Navigation & Mapping Apps */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                <img src="/images/navigation.png" alt="Navigation & Mapping Apps" className="w-full h-full object-cover" />
+                <Image src="/images/navigation.png" alt="Navigation & Mapping Apps" width={400} height={192} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-4">Navigation & Mapping Apps</h3>
               <p className="text-gray-300 leading-relaxed">
@@ -334,7 +350,7 @@ export default function Partners() {
             {/* Location Intelligence Providers */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                <img src="/images/location_intel.png" alt="Location Intelligence Providers" className="w-full h-full object-cover" />
+                <Image src="/images/location_intel.png" alt="Location Intelligence Providers" width={400} height={192} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-4">Location Intelligence Providers</h3>
               <p className="text-gray-300 leading-relaxed">
@@ -345,7 +361,7 @@ export default function Partners() {
             {/* Retail & Consumer Brands */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                <img src="/images/retail.png" alt="Retail & Consumer Brands" className="w-full h-full object-cover" />
+                <Image src="/images/retail.png" alt="Retail & Consumer Brands" width={400} height={192} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-4">Retail & Consumer Brands</h3>
               <p className="text-gray-300 leading-relaxed">
@@ -356,7 +372,7 @@ export default function Partners() {
             {/* Real Estate & Property Tech */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                <img src="/images/real_estate.png" alt="Real Estate & Property Tech" className="w-full h-full object-cover" />
+                <Image src="/images/real_estate.png" alt="Real Estate & Property Tech" width={400} height={192} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-4">Real Estate & Property Tech</h3>
               <p className="text-gray-300 leading-relaxed">
@@ -370,7 +386,7 @@ export default function Partners() {
                 {/* Travel & Tourism Platforms */}
                 <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <img src="/images/travel.png" alt="Travel & Tourism Platforms" className="w-full h-full object-cover" />
+                    <Image src="/images/travel.png" alt="Travel & Tourism Platforms" width={400} height={192} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">Travel & Tourism Platforms</h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -381,7 +397,7 @@ export default function Partners() {
                 {/* Advertising & OOH */}
                 <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <img src="/images/ads.png" alt="Advertising & OOH" className="w-full h-full object-cover" />
+                    <Image src="/images/ads.png" alt="Advertising & OOH" width={400} height={192} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">Advertising & OOH</h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -392,7 +408,7 @@ export default function Partners() {
                 {/* Smart Cities & Government */}
                 <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <img src="/images/smartcities.png" alt="Smart Cities & Government" className="w-full h-full object-cover" />
+                    <Image src="/images/smartcities.png" alt="Smart Cities & Government" width={400} height={192} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">Smart Cities & Government</h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -403,7 +419,7 @@ export default function Partners() {
                 {/* EV Charging Networks */}
                 <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <img src="/images/ev.png" alt="EV Charging Networks" className="w-full h-full object-cover" />
+                    <Image src="/images/ev.png" alt="EV Charging Networks" width={400} height={192} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">EV Charging Networks</h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -414,7 +430,7 @@ export default function Partners() {
                 {/* Urban Planning & Infrastructure */}
                 <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <img src="/images/urban_plan.png" alt="Urban Planning & Infrastructure" className="w-full h-full object-cover" />
+                    <Image src="/images/urban_plan.png" alt="Urban Planning & Infrastructure" width={400} height={192} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">Urban Planning & Infrastructure</h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -425,7 +441,7 @@ export default function Partners() {
                 {/* Insurance & Risk Modeling */}
                 <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <img src="/images/insurance.png" alt="Insurance & Risk Modeling" className="w-full h-full object-cover" />
+                    <Image src="/images/insurance.png" alt="Insurance & Risk Modeling" width={400} height={192} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">Insurance & Risk Modeling</h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -436,7 +452,7 @@ export default function Partners() {
                 {/* AI/ML & Robotics */}
                 <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <img src="/images/robotics.png" alt="AI/ML & Robotics" className="w-full h-full object-cover" />
+                    <Image src="/images/robotics.png" alt="AI/ML & Robotics" width={400} height={192} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">AI/ML & Robotics</h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -447,7 +463,7 @@ export default function Partners() {
                 {/* Telecommunications */}
                 <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <img src="/images/telecom.png" alt="Telecommunications" className="w-full h-full object-cover" />
+                    <Image src="/images/telecom.png" alt="Telecommunications" width={400} height={192} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">Telecommunications</h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -458,7 +474,7 @@ export default function Partners() {
                 {/* Emergency Response & Safety */}
                 <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <img src="/images/emergency_response.png" alt="Emergency Response & Safety" className="w-full h-full object-cover" />
+                    <Image src="/images/emergency_response.png" alt="Emergency Response & Safety" width={400} height={192} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">Emergency Response & Safety</h3>
                   <p className="text-gray-300 leading-relaxed">

@@ -75,7 +75,7 @@ export default function Profile() {
         const totalReferrals = referredUsers.length;
         const successfulReferrals = referredUsers.filter(u => u.status === 'successful').length;
         const pendingReferrals = referredUsers.filter(u => u.status === 'pending').length;
-        const tokensEarned = successfulReferrals * 25; // 25 tokens per successful referral
+        const tokensEarned = successfulReferrals * 25; // 25 Captur Points per successful referral
 
         setReferralStats({
           total_referrals: totalReferrals,
@@ -235,7 +235,7 @@ export default function Profile() {
     const referralUrl = `https://capturgo.com?ref=${profile.referral_code}`;
     const tweetText = `Move to Earn with @captur_go! 
 
-Join the people powered decentralized map network and earn tokens for moving.🗺️
+Join the people powered decentralized map network and earn Captur Points for moving.🗺️
 
 Use my referral code to get started with bonus points! 
 
@@ -263,7 +263,7 @@ ${referralUrl}
   if (isLoading && !error) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pt-24 px-4 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-white"></div>
+        <div className="loader"></div>
       </div>
     );
   }
@@ -300,17 +300,17 @@ ${referralUrl}
     <>
       <Head>
         <title>Profile - capturGO</title>
-        <meta name="description" content="Your capturGO profile, tokens, and referral dashboard" />
+        <meta name="description" content="Your capturGO profile, Captur Points, and referral dashboard" />
       </Head>
 
       <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pt-24 px-4">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold text-white mb-8">Profile</h1>
 
-          {/* Captur Tokens Section */}
+          {/* Captur Points Section */}
           <div className="bg-white/5 rounded-lg border border-white/10 p-6 mb-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-white">Captur Tokens</h2>
+              <h2 className="text-xl font-semibold text-white">Captur Points</h2>
               <button
                 onClick={handleSync}
                 disabled={isSyncing}
@@ -378,7 +378,7 @@ ${referralUrl}
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white">Referral Program</h3>
-                <p className="text-white/70 text-sm">Share your code and earn tokens</p>
+                <p className="text-white/70 text-sm">Share your code and earn Captur Points</p>
               </div>
             </div>
             
@@ -464,7 +464,7 @@ ${referralUrl}
                   </svg>
                 </div>
                 <div className="text-2xl font-bold text-white">{referralStats.tokens_earned}</div>
-                <div className="text-sm text-gray-400">Tokens Earned</div>
+                <div className="text-sm text-gray-400">Captur Points Earned</div>
               </div>
             </div>
 

@@ -56,31 +56,36 @@ export default function Navigation() {
             <div className="flex items-center space-x-8">
               <Link 
                 href="/#discover" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="Discover"
               >
                 Discover
               </Link>
               <Link 
                 href="/#features" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="Features"
               >
                 Features
               </Link>
               <Link 
                 href="/partners" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="Partners"
               >
                 Partners
               </Link>
               <Link 
                 href="/#leaderboard" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="Leaderboard"
               >
                 Leaderboard
               </Link>
               <Link 
                 href="/#faq" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="FAQs"
               >
                 FAQs
               </Link>
@@ -90,7 +95,7 @@ export default function Navigation() {
           {/* Sign In / Sign Up Buttons or Profile - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
             {loading ? (
-              <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-white"></div>
+              <div className="loader" style={{ width: '24px', height: '24px' }}></div>
             ) : user ? (
               <Link
                 href="/profile"
@@ -138,35 +143,40 @@ export default function Navigation() {
             <div className="flex flex-col space-y-4 px-4">
               <Link 
                 href="/#discover" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="Discover"
                 onClick={() => setIsOpen(false)}
               >
                 Discover
               </Link>
               <Link 
                 href="/#features" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="Features"
                 onClick={() => setIsOpen(false)}
               >
                 Features
               </Link>
               <Link 
                 href="/partners" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="Partners"
                 onClick={() => setIsOpen(false)}
               >
                 Partners
               </Link>
               <Link 
                 href="/#leaderboard" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="Leaderboard"
                 onClick={() => setIsOpen(false)}
               >
                 Leaderboard
               </Link>
               <Link 
                 href="/#faq" 
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors flip-text"
+                data-text="FAQs"
                 onClick={() => setIsOpen(false)}
               >
                 FAQs

@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://capturgo.com/" />
           <meta property="og:title" content="capturGO - Earn Rewards for Navigation Data" />
-          <meta property="og:description" content="Join the decentralized location intelligence network. Earn tokens by contributing navigation data through active and passive participation." />
+          <meta property="og:description" content="Join the decentralized location intelligence network. Earn points by contributing navigation data through active and passive participation." />
           <meta property="og:image" content="/images/socialcard.png" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:url" content="https://capturgo.com/" />
           <meta name="twitter:title" content="capturGO - Earn Rewards for Navigation Data" />
-          <meta name="twitter:description" content="Join the decentralized location intelligence network. Earn tokens by contributing navigation data through active and passive participation." />
+          <meta name="twitter:description" content="Join the decentralized location intelligence network. Earn points by contributing navigation data through active and passive participation." />
           <meta name="twitter:image" content="/images/socialcard.png" />
           <meta name="twitter:image:alt" content="capturGO - Decentralized Navigation Rewards" />
         </Head>

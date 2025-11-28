@@ -99,8 +99,8 @@ export default function BrevoFormEmbed() {
               <p style="margin:0;">Subscribe to get the latest updates on capturGO features, launches, and community news.</p>
             </div>
           </div>
-          <div style="max-width:448px; margin:0 auto; padding:0 16px;">
-            <div style="display:flex; gap:8px; align-items:center;">
+          <div style="max-width:600px; margin:0 auto; padding:0 16px;">
+            <div style="display:flex; gap:4px; align-items:center;">
               <div class="sib-input sib-form-block" style="flex:1; min-width:0;">
                 <input
                   type="email"

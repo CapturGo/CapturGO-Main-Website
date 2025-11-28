@@ -107,8 +107,8 @@ export default function Home({ isReferralLink = false }) {
       answer: "Absolutely. capturGO prioritizes privacy by anonymizing and aggregating location data, ensuring no personal information is collected or used for direct user targeting."
     },
     {
-      question: "What are the points and tokens used for?",
-      answer: "Points may be converted into tokens within the capturGO ecosystem, which could unlock premium features, loyalty bonuses, or other benefits. Full details will be shared in the upcoming monetization strategy."
+      question: "What are the points used for?",
+      answer: "Points may be converted within the capturGO ecosystem, which could unlock premium features, loyalty bonuses, or other benefits. Full details will be shared in the upcoming monetization strategy."
     },
     {
       question: "Do I need a smartphone to use capturGO?",
@@ -139,7 +139,7 @@ export default function Home({ isReferralLink = false }) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://capturgo.com" />
         <meta property="og:title" content={isReferralLink ? "Join CapturGO with my referral code!" : "capturGO - Decentralized GPS Navigation App | Earn Crypto Rewards"} />
-        <meta property="og:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!" : "Revolutionary decentralized GPS navigation app. Earn crypto rewards for sharing real-time traffic data and location intelligence. Join the future of community-powered navigation with capturGO."} />
+        <meta property="og:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus points!" : "Revolutionary decentralized GPS navigation app. Earn crypto rewards for sharing real-time traffic data and location intelligence. Join the future of community-powered navigation with capturGO."} />
         <meta property="og:image" content={isReferralLink ? "https://capturgo.com/images/ReferalSocial.png" : "https://capturgo.com/images/logo.svg"} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -150,7 +150,7 @@ export default function Home({ isReferralLink = false }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://capturgo.com" />
         <meta name="twitter:title" content={isReferralLink ? "Join CapturGO with my referral code!" : "capturGO - Decentralized GPS Navigation App | Earn Crypto Rewards"} />
-        <meta name="twitter:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus tokens!" : "Revolutionary decentralized GPS navigation app. Earn crypto rewards for sharing real-time traffic data and location intelligence with capturGO."} />
+        <meta name="twitter:description" content={isReferralLink ? "Turn your movement into rewards with CapturGO. Use my referral code to get started with bonus points!" : "Revolutionary decentralized GPS navigation app. Earn crypto rewards for sharing real-time traffic data and location intelligence with capturGO."} />
         <meta name="twitter:image" content={isReferralLink ? "https://capturgo.com/images/ReferalSocial.png" : "https://capturgo.com/images/logo.svg"} />
         <meta name="twitter:creator" content="@captur_go" />
         <meta name="twitter:site" content="@captur_go" />
@@ -428,8 +428,57 @@ export default function Home({ isReferralLink = false }) {
           </div>
           
           <div className="relative max-w-6xl mx-auto">
+            {/* Animated Connection Lines - Behind Phone */}
+            <div className="hidden lg:block absolute inset-0 pointer-events-none">
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="flowGradient">
+                    <stop offset="0%" stopColor="#935EFF" stopOpacity="0"/>
+                    <stop offset="30%" stopColor="#935EFF" stopOpacity="0.8"/>
+                    <stop offset="70%" stopColor="#7B4FE6" stopOpacity="0.8"/>
+                    <stop offset="100%" stopColor="#7B4FE6" stopOpacity="0"/>
+                  </linearGradient>
+                </defs>
+                
+                {/* Sequential Flow Path: Navigate → POI → Earn → Report */}
+                <path 
+                  d="M 20,25 L 80,25 L 80,75 L 20,75 Z" 
+                  fill="none"
+                  stroke="url(#flowGradient)" 
+                  strokeWidth="1" 
+                  strokeDasharray="8,4"
+                  pathLength="100"
+                >
+                  <animate 
+                    attributeName="stroke-dashoffset" 
+                    values="100;0" 
+                    dur="8s" 
+                    repeatCount="indefinite"
+                  />
+                </path>
+                
+                {/* Flowing particles */}
+                <circle r="1" fill="#935EFF" opacity="0.8">
+                  <animateMotion dur="8s" repeatCount="indefinite">
+                    <mpath href="#flowPath"/>
+                  </animateMotion>
+                  <animate attributeName="opacity" values="0;1;1;0" dur="8s" repeatCount="indefinite"/>
+                </circle>
+                
+                <circle r="0.8" fill="#7B4FE6" opacity="0.6">
+                  <animateMotion dur="8s" repeatCount="indefinite" begin="2s">
+                    <mpath href="#flowPath"/>
+                  </animateMotion>
+                  <animate attributeName="opacity" values="0;1;1;0" dur="8s" repeatCount="indefinite" begin="2s"/>
+                </circle>
+                
+                {/* Hidden path for particle animation */}
+                <path id="flowPath" d="M 20,25 L 80,25 L 80,75 L 20,75 Z" fill="none" stroke="none"/>
+              </svg>
+            </div>
+
             {/* Mobile Phone Mockup - Center */}
-            <div className="flex justify-center mb-8 lg:mb-0 scroll-scale-up">
+            <div className="flex justify-center mb-8 lg:mb-0 scroll-scale-up relative z-10">
               <img 
                 src="/images/Map.png" 
                 alt="capturGO Map Interface" 
@@ -442,7 +491,7 @@ export default function Home({ isReferralLink = false }) {
               
               {/* Navigate Card - Top Left */}
               <div className="lg:absolute lg:top-8 lg:left-16 lg:w-72 lg:pointer-events-auto scroll-slide-left scroll-stagger-1">
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 min-h-[160px] flex flex-col">
+                <div className="bg-black/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 min-h-[160px] flex flex-col">
                   <div className="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center mb-4">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -455,24 +504,25 @@ export default function Home({ isReferralLink = false }) {
                 </div>
               </div>
 
-              {/* Anonymize Card - Top Right */}
+              {/* POI Card - Top Right */}
               <div className="lg:absolute lg:top-8 lg:right-16 lg:w-72 lg:pointer-events-auto scroll-slide-right scroll-stagger-2">
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 min-h-[160px] flex flex-col">
+                <div className="bg-black/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 min-h-[160px] flex flex-col">
                   <div className="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center mb-4">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">Anonymize</h3>
+                  <h3 className="text-xl font-semibold text-white mb-3">POI</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    Contribute anonymized location data securely
+                    Share developing infrastructure and points of interest
                   </p>
                 </div>
               </div>
 
               {/* Report Card - Bottom Left */}
               <div className="lg:absolute lg:bottom-8 lg:left-16 lg:w-72 lg:pointer-events-auto scroll-slide-left scroll-stagger-3">
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 min-h-[160px] flex flex-col">
+                <div className="bg-black/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 min-h-[160px] flex flex-col">
                   <div className="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center mb-4">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -488,7 +538,7 @@ export default function Home({ isReferralLink = false }) {
 
               {/* Earn Card - Bottom Right */}
               <div className="lg:absolute lg:bottom-8 lg:right-16 lg:w-72 lg:pointer-events-auto scroll-slide-right scroll-stagger-4">
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 min-h-[160px] flex flex-col">
+                <div className="bg-black/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 min-h-[160px] flex flex-col">
                   <div className="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center mb-4">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -524,7 +574,7 @@ export default function Home({ isReferralLink = false }) {
               </h2>
               
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-lg">
-                You'll contribute to the future of location data, and earn $CAPT which we will be releasing in the near future. (More info around tokenomics to be released, no token is circulating at the moment, be aware)
+                You'll contribute to the future of location data, and earn CAPT Points which we will be releasing in the near future. (More info around point economics to be released, no points are circulating at the moment, be aware)
               </p>
               
               {/* Action Buttons */}

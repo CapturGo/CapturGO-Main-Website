@@ -51,10 +51,10 @@ export default function Leaderboard() {
   return (
     <div className="overflow-hidden bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-lg">
       <div className="px-4 sm:px-6 py-4 border-b border-gray-800">
-        <h2 className="text-lg sm:text-xl font-semibold text-white">Top 50 Token Holders</h2>
+        <h2 className="text-lg sm:text-xl font-semibold text-white">Top 50 Point Holders</h2>
         <div className="mt-3 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
           <p className="text-xs sm:text-sm text-yellow-200 leading-relaxed">
-            <strong>⚠️ Disclaimer:</strong> No official token has been released. 
+            <strong>Disclaimer:</strong> No official points have been released. 
           </p>
         </div>
       </div>
@@ -63,7 +63,7 @@ export default function Leaderboard() {
       <div className="hidden sm:grid px-6 py-3 bg-gray-800/50 border-b border-gray-700 grid-cols-4 gap-4 text-sm font-medium text-gray-300">
         <div>Rank</div>
         <div>Username</div>
-        <div className="text-right">Token Balance</div>
+        <div className="text-right">Point Balance</div>
         <div className="text-right">Rewards to Earn</div>
       </div>
       
@@ -95,7 +95,7 @@ export default function Leaderboard() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">Token Balance</p>
+                    <p className="text-xs text-gray-400 mb-1">Point Balance</p>
                     <p className="text-sm font-medium text-indigo-400">
                       {profile.token_balance.toLocaleString()}
                     </p>

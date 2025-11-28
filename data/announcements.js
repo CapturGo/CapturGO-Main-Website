@@ -2,7 +2,7 @@ export const announcements = [
   {
     id: 1,
     title: "CapturGO releases major website update",
-    description: "Our latest update introduces a redesigned dashboard where you can track rewards, monitor your leaderboard rank, and manage your points — all in one place.",
+    description: "Our latest update introduces a redesigned dashboard where you can track points, monitor your leaderboard rank, and manage your rewards — all in one place.",
     date: "October 30, 2025",
     link: "https://x.com/captur_go/status/1983977435319156864",
     isHighlighted: false

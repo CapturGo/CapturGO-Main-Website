@@ -256,7 +256,7 @@ export default function GettingStartedTutorial() {
                   
                   <p>
                     You'll collect CAPT Points, which can later convert into $CAPT tokens.
-                    These tokens represent your contribution to the network and can be used for future rewards, perks, or trading once the ecosystem launches.
+                    These points represent your contribution to the network and can be used for future rewards, perks, or trading once the ecosystem launches.
                   </p>
                 </div>
               </div>
@@ -288,7 +288,7 @@ export default function GettingStartedTutorial() {
                     </li>
                   </ul>
                   <p className="text-gray-300 mt-6">
-                    Consistency and early participation matter — the earlier you start, the more your rewards will multiply when token conversions go live.
+                    Consistency and early participation matter — the earlier you start, the more your rewards will multiply when point conversions go live.
                   </p>
                 </div>
               </div>
