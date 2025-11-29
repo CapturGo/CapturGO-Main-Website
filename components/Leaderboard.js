@@ -22,8 +22,8 @@ export default function Leaderboard() {
   useEffect(() => {
     loadLeaderboard();
 
-    // Refresh every 10 minutes
-    const interval = setInterval(loadLeaderboard, 10 * 60 * 1000);
+    // Refresh every 15 minutes to reduce API load
+    const interval = setInterval(loadLeaderboard, 15 * 60 * 1000);
 
     return () => clearInterval(interval);
   }, []);

@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { supabase } from './supabaseClient';
 
 // Create a custom client for the external database
 export const externalSupabase = createClient(
@@ -21,17 +22,24 @@ export function calculateReward(position: number): number {
 
 export async function fetchLeaderboard(): Promise<LeaderboardProfile[]> {
   try {
-    // Get all profiles to ensure we get the true top 50 after numeric sorting
-    const { data, error } = await externalSupabase
+    // Get high token users (>40k) separately since they seem to be filtered in general queries
+    const { data: highTokenUsers, error: highTokenError } = await supabase
       .from('profiles')
       .select('username, token_balance')
-      .not('username', 'eq', 'Admin')
-      .not('username', 'eq', 'Test')
-      .not('username', 'eq', 'b');
-
-    if (error) {
-      throw new Error(`Database error: ${error.message}`);
+      .gt('token_balance', 40000);
+    
+    // Get regular users (<=40k)
+    const { data: regularUsers, error: regularError } = await supabase
+      .from('profiles')
+      .select('username, token_balance')
+      .lte('token_balance', 40000);
+    
+    if (highTokenError || regularError) {
+      throw new Error(`Database error: ${highTokenError?.message || regularError?.message}`);
     }
+    
+    // Combine both datasets
+    const data = [...(highTokenUsers || []), ...(regularUsers || [])];
 
     if (!data || data.length === 0) {
       return [];
