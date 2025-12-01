@@ -1,356 +1,388 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import BlogTemplate from '../../components/BlogTemplate';
 
 export default function GettingStartedTutorial() {
   return (
-    <div className="bg-gradient-to-br from-black via-purple-900/20 to-black">
-        <Head>
-          <title>Turn Your Movement Into Rewards: How CapturGO is Redefining Mobility - CapturGO Blog</title>
-          <meta name="description" content="Learn how CapturGO turns your daily movement into rewards while keeping your data private and secure. Get started in just a few minutes." />
-          <meta name="keywords" content="CapturGO tutorial, DePIN, mobility rewards, decentralized maps, location data" />
-          
-          {/* Open Graph */}
-          <meta property="og:title" content="Turn Your Movement Into Rewards: How CapturGO is Redefining Mobility" />
-          <meta property="og:description" content="Learn how CapturGO turns your daily movement into rewards while keeping your data private and secure." />
-          <meta property="og:type" content="article" />
-          <meta property="og:site_name" content="capturGO" />
-          <meta property="og:image" content="/images/id1.png" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:image:alt" content="Getting Started with CapturGO: Complete Tutorial" />
-          
-          {/* Twitter Card */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Turn Your Movement Into Rewards: How CapturGO is Redefining Mobility" />
-          <meta name="twitter:description" content="Learn how CapturGO turns your daily movement into rewards while keeping your data private and secure." />
-          <meta name="twitter:image" content="/images/id1.png" />
-          <meta name="twitter:image:alt" content="Getting Started with CapturGO: Complete Tutorial" />
-        </Head>
+    <BlogTemplate
+      title="Getting Started with CapturGO: Complete Tutorial"
+      description="Learn how to set up CapturGO, start earning rewards, and maximize your contribution to the decentralized location network. Complete guide to turning your movement into rewards."
+      keywords="CapturGO, tutorial, mobility rewards, decentralized maps, location intelligence, CAPT tokens, privacy-first"
+      ogTitle="Getting Started with CapturGO: Complete Tutorial"
+      ogDescription="Complete guide to earning rewards with CapturGO while contributing to the world's first user-owned mobility network."
+      image="/images/id1.png"
+      date="4 Nov 2025"
+      category="TUTORIALS"
+    >
+      {/* Blog Content */}
+      <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
+        
+        {/* Introduction Section */}
+        <div className="mb-12">
+          <p>
+            CapturGO is a user-owned mobility and mapping network built from the movement of everyday people. Instead of relying on expensive fleets or centralized data collection, CapturGO uses encrypted mobility signals from smartphones to create a live, continually updating map and traffic layer.
+          </p>
+          <p>
+            Every time someone walks, drives, or commutes, their device generates valuable mobility data. CapturGO allows users to contribute this data anonymously, strengthening the global network while earning rewards for their participation.
+          </p>
+        </div>
 
-        {/* Header */}
-        <div className="pt-8 pb-8">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Back Button and Meta */}
-            <div className="flex items-center justify-between mb-8">
-              <Link href="/blog" className="group flex items-center px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-xl border border-gray-700/50 hover:border-gray-600/50 text-gray-300 hover:text-white transition-all duration-200">
-                <svg className="w-4 h-4 mr-2 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        {/* What Makes CapturGO Special */}
+        <div className="mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">What Makes CapturGO Special?</h2>
+          <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
+            <p>
+              Modern maps and mobility systems are essential for transportation, logistics, navigation, urban planning, and AI training. Yet today:
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6 my-8">
+              <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-6">
+                <h3 className="text-white font-semibold mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Current Problems:
+                </h3>
+                <ul className="text-gray-300 space-y-2">
+                  <li>• Mobility data becomes stale quickly</li>
+                  <li>• Mapping is controlled by few companies</li>
+                  <li>• Businesses pay high prices for APIs</li>
+                  <li>• Users generate data but rarely benefit</li>
+                  <li>• Traditional collection methods are costly</li>
+                </ul>
+              </div>
+              <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-6">
+                <h3 className="text-white font-semibold mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  CapturGO's Solution:
+                </h3>
+                <ul className="text-gray-300 space-y-2">
+                  <li>• Real-time community updates</li>
+                  <li>• User-owned decentralized network</li>
+                  <li>• Contributors earn rewards</li>
+                  <li>• Privacy-first data collection</li>
+                  <li>• Smartphone-powered</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* How CapturGO Works - Simple Explanation */}
+        <div className="mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">CapturGO Made Simple</h2>
+          <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
+            <p>
+              Imagine you and your friends walking to school, riding bikes, or driving around town. Every time you move, you leave tiny invisible crumbs behind. These crumbs show where people go, how fast they are moving, and what is happening on the streets.
+            </p>
+            
+            <p>
+              CapturGO uses these clues to keep the map alive and updated. You don't need any special device. Your phone already knows when you move, and it quietly shares small pieces of anonymous information that help the map learn.
+            </p>
+
+            <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-6 my-8">
+              <h3 className="text-white font-semibold mb-3 flex items-center">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Back
-              </Link>
-              <div className="text-gray-400 text-sm font-medium">
-                4 NOVEMBER 2025 / TUTORIALS
-              </div>
+                Sometimes CapturGO might ask you simple things like:
+              </h3>
+              <ul className="text-gray-300 space-y-2">
+                <li>• Is this store open right now?</li>
+                <li>• Can you take a quick photo of this place to confirm it still exists?</li>
+                <li>• Did you notice construction on this road?</li>
+                <li>• Is there traffic or an accident ahead?</li>
+                <li>• Did something change on this street?</li>
+                <li>• Is the area busy or quiet today?</li>
+              </ul>
             </div>
 
-            {/* Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-8 leading-tight text-center max-w-4xl mx-auto">
-              Turn Your Movement Into Rewards: How CapturGO is Redefining Mobility
-            </h1>
+            <p>
+              When you move around, check places, report something on the road, or take small photos, you earn <strong>CAPT Points</strong>. Later, these points can turn into <strong>$CAPT tokens</strong>, which are digital rewards you can use in the future.
+            </p>
+          </div>
+        </div>
 
-            {/* Featured Image */}
-            <div className="mb-12">
-              <div className="relative">
-                <img 
-                  src="/images/id1.png?v=1" 
-                  alt="CapturGO Tutorial - Turn Your Movement Into Rewards"
-                  className="w-full h-auto rounded-2xl shadow-2xl"
-                  onError={(e) => {
-                    // Show fallback gradient placeholder if image fails to load
-                    e.target.style.display = 'none';
-                    e.target.nextElementSibling.style.display = 'flex';
-                  }}
-                />
-                {/* Fallback placeholder */}
-                <div className="hidden w-full h-64 bg-gradient-to-br from-purple-600/20 to-purple-800/20 rounded-2xl items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-purple-600/30 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                      <svg className="w-8 h-8 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                    </div>
-                    <p className="text-purple-300 font-medium">Tutorial Image</p>
-                  </div>
-                </div>
+        {/* Getting Started Guide */}
+        <div className="mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Getting Started (Beta Access)</h2>
+          <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
+            <p>
+              CapturGO is currently available through TestFlight for early testers. Here's how to get started:
+            </p>
+
+            <div className="space-y-8">
+              <div className="bg-gray-900/50 border border-purple-700/50 rounded-2xl p-6">
+                <h3 className="text-white font-semibold mb-4 flex items-center">
+                  <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">1</span>
+                  Install CapturGO (TestFlight)
+                </h3>
+                <p className="text-gray-300">
+                  Beta access is released in waves. When you receive your invitation email, install TestFlight and download CapturGO from the TestFlight link. If you haven't received an invitation yet, visit <a href="https://www.capturgo.com/" className="text-purple-400 hover:text-purple-300 underline">capturgo.com</a> to join the waitlist.
+                </p>
+              </div>
+
+              <div className="bg-gray-900/50 border border-purple-700/50 rounded-2xl p-6">
+                <h3 className="text-white font-semibold mb-4 flex items-center">
+                  <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">2</span>
+                  Create Your Account
+                </h3>
+                <p className="text-gray-300">
+                  Sign up using your email address and password. Your account generates an anonymized contributor ID that is not tied to personal identity.
+                </p>
+              </div>
+
+              <div className="bg-gray-900/50 border border-purple-700/50 rounded-2xl p-6">
+                <h3 className="text-white font-semibold mb-4 flex items-center">
+                  <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">3</span>
+                  Enable Background Activity Tracking
+                </h3>
+                <p className="text-gray-300">
+                  Go to Settings → Location Service → Always Allow. This lets you contribute mobility data even when the app is not onscreen.
+                </p>
+              </div>
+
+              <div className="bg-gray-900/50 border border-purple-700/50 rounded-2xl p-6">
+                <h3 className="text-white font-semibold mb-4 flex items-center">
+                  <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">4</span>
+                  Enter Your Referral Code
+                </h3>
+                <p className="text-gray-300">
+                  If you have an invite code or referral code, enter it during onboarding to unlock early bonus points.
+                </p>
+              </div>
+
+              <div className="bg-gray-900/50 border border-purple-700/50 rounded-2xl p-6">
+                <h3 className="text-white font-semibold mb-4 flex items-center">
+                  <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">5</span>
+                  Start Moving!
+                </h3>
+                <p className="text-gray-300">
+                  Once the app displays "Ready", you can begin contributing. Keep the app running in the background to earn points as you walk, drive, or commute.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Article Content */}
-        <div className="pb-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="prose prose-lg prose-invert max-w-none">
-              
-              {/* Introduction */}
-              <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
-                <p>
-                  Every day, millions of people move through cities — driving to work, walking to class, exploring new places.
-                  What most don't realize is that every movement produces data — data that powers maps, AI models, and location-based services used by companies across the world.
+        {/* How to Earn Rewards */}
+        <div className="mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">How to Earn Rewards</h2>
+          <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
+            <p>
+              There are three main ways to contribute and earn CAPT Points:
+            </p>
+
+            <div className="grid gap-6">
+              <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-6">
+                <h3 className="text-white font-semibold mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  1. Move With the App (Passive Contribution)
+                </h3>
+                <p className="text-gray-300 mb-3">
+                  CapturGO passively collects anonymized movement signals while you walk, drive, ride, or explore the city. This is the easiest way to contribute - just enable background activity and go about your day.
                 </p>
-                
-                <p>
-                  <strong className="text-white">But there's a problem: you generate that data — and never get rewarded for it.</strong>
-                </p>
-                
-                <p>
-                  CapturGO changes that.<br />
-                  It's a decentralized mobility app that lets you earn rewards just by moving, while keeping your data private and secure.
-                  Whether you're commuting, walking, or traveling, CapturGO turns your daily activity into points, rankings, and real value.
-                </p>
-                
-                <p>
-                  Here's how it works — and how to start earning in just a few minutes.
+                <p className="text-gray-300">
+                  <strong>Earn points by:</strong> Visiting new hexes, revisiting hexes after cooldown periods, contributing movement signals
                 </p>
               </div>
 
-              {/* What CapturGO Actually Does */}
-              <div className="mt-16 mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">What CapturGO Actually Does</h2>
-                <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
-                  <p>
-                    CapturGO is part of a new wave of technology called DePIN (Decentralized Physical Infrastructure Networks).
-                    Instead of relying on large tech companies to collect and sell your movement data, CapturGO creates a community-driven network where users share anonymized mobility data — and get rewarded for doing it.
-                  </p>
-                  
-                  <p>
-                    Your phone passively records encrypted location points as you move.
-                    These signals help build a live mobility layer used for navigation, AI, and urban insight — without compromising your privacy.
-                  </p>
-                  
-                  <div className="bg-gray-800/30 rounded-2xl p-6 my-8">
-                    <p className="text-white font-semibold mb-4">The result:</p>
-                    <ul className="space-y-2 text-gray-300">
-                      <li>• A fairer data economy</li>
-                      <li>• A stronger decentralized map</li>
-                      <li>• And you, earning rewards for powering it</li>
-                    </ul>
-                  </div>
-                  
-                  <p>
-                    Think of it as a decentralized version of Waze or Google Maps, where the people contributing are also the ones benefitting.
-                  </p>
-                </div>
+              <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-6">
+                <h3 className="text-white font-semibold mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  2. Verify Places and Take Photos (Active Contribution)
+                </h3>
+                <p className="text-gray-300 mb-3">
+                  When you pass a point of interest, the app may ask you to confirm it exists, check if it's open, take a quick photo, or report if the place has moved or shut down.
+                </p>
+                <p className="text-gray-300">
+                  <strong>Earn points by:</strong> POI verification, taking storefront photos, updating business information
+                </p>
               </div>
 
-              {/* Why It Matters */}
-              <div className="mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Why It Matters</h2>
-                <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
-                  <p>
-                    Big tech already earns billions using mobility data.
-                    They use it to train AI models, improve logistics, and sell insights to advertisers — all powered by information from people like you.
-                  </p>
-                  
-                  <p>
-                    <strong className="text-white">CapturGO flips that dynamic.</strong><br />
-                    By letting users control and benefit from their data, the app builds a user-owned mobility network that rewards participation instead of exploitation.
-                  </p>
-                  
-                  <p>
-                    Each new user strengthens the system's accuracy, scale, and decentralization — meaning every movement helps grow the world's first crowdsourced mobility infrastructure.
-                  </p>
-                </div>
+              <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-6">
+                <h3 className="text-white font-semibold mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  3. Report What You See (Active Contribution)
+                </h3>
+                <p className="text-gray-300 mb-3">
+                  Submit simple, real-world reports about construction, roadblocks, accidents, lane changes, heavy traffic, flooding, hazards, or temporary detours.
+                </p>
+                <p className="text-gray-300">
+                  <strong>Earn points by:</strong> Incident reporting, infrastructure issues (potholes, cracks, floods), road condition updates
+                </p>
               </div>
-
-              {/* Privacy by Design */}
-              <div className="mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Privacy by Design</h2>
-                <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
-                  <p>
-                    CapturGO is built around privacy and transparency, not surveillance.
-                    It uses advanced anonymization and edge processing to make sure your personal information stays on your device.
-                  </p>
-                  
-                  <div className="grid md:grid-cols-2 gap-6 my-8">
-                    <div className="bg-green-900/20 border border-green-700/30 rounded-2xl p-6">
-                      <h3 className="text-green-400 font-semibold mb-3">What CapturGO collects:</h3>
-                      <p className="text-gray-300">Anonymous GPS activity and movement signals</p>
-                    </div>
-                    <div className="bg-red-900/20 border border-red-700/30 rounded-2xl p-6">
-                      <h3 className="text-red-400 font-semibold mb-3">What it never collects:</h3>
-                      <p className="text-gray-300">Messages, contacts, or personal identifiers</p>
-                    </div>
-                  </div>
-                  
-                  <p>
-                    You're always in control. You decide when to share and can pause at any time.
-                    Your movement creates value — CapturGO just helps you claim it.
-                  </p>
-                </div>
-              </div>
-
-              {/* How to Get Started */}
-              <div className="mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">How to Get Started</h2>
-                <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
-                  <p>Getting started is simple. You can set it up in under five minutes.</p>
-                  
-                  <div className="space-y-8">
-                    <div className="bg-gray-800/30 rounded-2xl p-6">
-                      <h3 className="text-white font-semibold mb-3 flex items-center">
-                        <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">1</span>
-                        Download CapturGO
-                      </h3>
-                      <p className="text-gray-300 ml-11">
-                        Join the Beta on iOS (via TestFlight). Android coming soon!
-                        Install the app and sign up with your email to get started.
-                      </p>
-                    </div>
-                    
-                    <div className="bg-gray-800/30 rounded-2xl p-6">
-                      <h3 className="text-white font-semibold mb-3 flex items-center">
-                        <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">2</span>
-                        Enable Background Tracking
-                      </h3>
-                      <p className="text-gray-300 ml-11">
-                        Go to your phone's settings and allow CapturGO to track in the background.
-                        This ensures your movements are counted and rewarded — even when the app isn't open.
-                      </p>
-                    </div>
-                    
-                    <div className="bg-gray-800/30 rounded-2xl p-6">
-                      <h3 className="text-white font-semibold mb-3 flex items-center">
-                        <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">3</span>
-                        Start Moving
-                      </h3>
-                      <p className="text-gray-300 ml-11">
-                        Walk, drive, or explore.
-                        Your phone automatically detects movement and contributes to the decentralized network.
-                      </p>
-                    </div>
-                    
-                    <div className="bg-gray-800/30 rounded-2xl p-6">
-                      <h3 className="text-white font-semibold mb-3 flex items-center">
-                        <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">4</span>
-                        Check Your Dashboard
-                      </h3>
-                      <div className="text-gray-300 ml-11">
-                        <p className="mb-3">Inside the app, you can track:</p>
-                        <ul className="space-y-1">
-                          <li>• Your total rewards (CAPT Points)</li>
-                          <li>• Your leaderboard rank</li>
-                          <li>• Daily stats and badges</li>
-                        </ul>
-                        <p className="mt-3">The more consistent your movement, the more you earn.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* How Rewards Work */}
-              <div className="mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">How Rewards Work</h2>
-                <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
-                  <p>
-                    CapturGO rewards users based on verified mobility data — not steps, but meaningful movement.
-                    Points are distributed based on:
-                  </p>
-                  
-                  <ul className="space-y-2 ml-6">
-                    <li>• Distance traveled</li>
-                    <li>• Consistency (daily activity streaks)</li>
-                    <li>• Community challenges and referrals</li>
-                  </ul>
-                  
-                  <p>
-                    You'll collect CAPT Points, which can later convert into $CAPT tokens.
-                    These points represent your contribution to the network and can be used for future rewards, perks, or trading once the ecosystem launches.
-                  </p>
-                </div>
-              </div>
-
-              {/* Tips for Maximizing Rewards */}
-              <div className="mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Tips for Maximizing Rewards</h2>
-                <div className="bg-gray-800/30 rounded-2xl p-6">
-                  <ul className="space-y-3 text-gray-300">
-                    <li className="flex items-center">
-                      <span className="text-green-400 mr-3">✅</span>
-                      Keep background tracking turned on
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-green-400 mr-3">✅</span>
-                      Use CapturGO daily — even short trips count
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-green-400 mr-3">✅</span>
-                      Join seasonal challenges for bonuses
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-green-400 mr-3">✅</span>
-                      Invite friends with your referral code for extra points
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-green-400 mr-3">✅</span>
-                      Check your leaderboard weekly
-                    </li>
-                  </ul>
-                  <p className="text-gray-300 mt-6">
-                    Consistency and early participation matter — the earlier you start, the more your rewards will multiply when point conversions go live.
-                  </p>
-                </div>
-              </div>
-
-              {/* The Bigger Picture */}
-              <div className="mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">The Bigger Picture</h2>
-                <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
-                  <p>
-                    CapturGO isn't just another rewards app — it's a movement toward data fairness and decentralized mobility.
-                    By taking part, you're helping build the world's first open network of real-world movement data — owned by its users.
-                  </p>
-                  
-                  <div className="bg-gray-800/30 rounded-2xl p-6 my-8">
-                    <p className="text-white font-semibold mb-4">This technology can power:</p>
-                    <ul className="space-y-2 text-gray-300">
-                      <li>• Real-time traffic updates</li>
-                      <li>• City planning insights</li>
-                      <li>• Safer navigation tools</li>
-                      <li>• DePIN-powered map systems</li>
-                    </ul>
-                  </div>
-                  
-                  <p>
-                    The more people join, the smarter and more valuable the network becomes.
-                  </p>
-                </div>
-              </div>
-
-              {/* Ready to Join */}
-              <div className="mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Ready to Join?</h2>
-                <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
-                  <p>
-                    You already move every day.<br />
-                    Now you can finally earn from it — while helping build the foundation of a decentralized future.
-                  </p>
-                  
-                  <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 text-center my-8">
-                    <p className="text-white font-bold text-xl mb-4">
-                      Download CapturGO. Move. Earn. Repeat.
-                    </p>
-                    <p className="text-gray-300">
-                      Your movement has value — it's time to claim it.
-                    </p>
-                    <div className="mt-6">
-                      <a 
-                        href="https://testflight.apple.com/join/nCcrMvFA" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl transition-colors duration-200"
-                      >
-                        Get Started Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
-    </div>
+
+        {/* Privacy and Security */}
+        <div className="mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Your Privacy is Protected</h2>
+          <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
+            <p>
+              Privacy is at the center of CapturGO's mission. Your identity is never the product, and your movement is never tracked in a way that can be tied back to you.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6 my-8">
+              <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-6">
+                <h3 className="text-white font-semibold mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  What CapturGO Protects:
+                </h3>
+                <ul className="text-gray-300 space-y-2">
+                  <li>• Anonymous user identity</li>
+                  <li>• Encrypted movement data</li>
+                  <li>• Start and end point protection</li>
+                  <li>• Personal privacy zones</li>
+                  <li>• No tracking without permission</li>
+                </ul>
+              </div>
+              <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-6">
+                <h3 className="text-white font-semibold mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L12 21l-2.914-2.914M12 21l2.914-2.914M12 21l-8.485-8.485m0 0L12 21l8.485-8.485M5.636 5.636L12 12l6.364-6.364M12 12l-6.364-6.364" />
+                  </svg>
+                  What CapturGO Never Collects:
+                </h3>
+                <ul className="text-gray-300 space-y-2">
+                  <li>• Passwords or recovery phrases</li>
+                  <li>• Phone contacts</li>
+                  <li>• Credit card information</li>
+                  <li>• Home addresses</li>
+                  <li>• Personal identity documents</li>
+                </ul>
+              </div>
+            </div>
+
+            <p>
+              You can create personal privacy zones around places you don't want the app to record, such as your home or workplace. CapturGO automatically pauses data collection when you enter these zones.
+            </p>
+          </div>
+        </div>
+
+        {/* What CapturGO Enables */}
+        <div className="mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">What CapturGO Enables</h2>
+          <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
+            <p>
+              With enough contributors, CapturGO becomes a decentralized mobility infrastructure capable of powering:
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-4 my-8">
+              <div className="bg-gray-900/50 border border-gray-700/30 rounded-xl p-4 text-center">
+                <div className="flex justify-center mb-2">
+                  <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                  </svg>
+                </div>
+                <h4 className="text-white font-semibold mb-2">Fresh Maps</h4>
+                <p className="text-gray-400 text-sm">Community-updated maps that stay current</p>
+              </div>
+              <div className="bg-gray-900/50 border border-gray-700/30 rounded-xl p-4 text-center">
+                <div className="flex justify-center mb-2">
+                  <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h4 className="text-white font-semibold mb-2">Real-time Traffic</h4>
+                <p className="text-gray-400 text-sm">Live routing and congestion data</p>
+              </div>
+              <div className="bg-gray-900/50 border border-gray-700/30 rounded-xl p-4 text-center">
+                <div className="flex justify-center mb-2">
+                  <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <h4 className="text-white font-semibold mb-2">POI Intelligence</h4>
+                <p className="text-gray-400 text-sm">Verified business and location data</p>
+              </div>
+              <div className="bg-gray-900/50 border border-gray-700/30 rounded-xl p-4 text-center">
+                <div className="flex justify-center mb-2">
+                  <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h4 className="text-white font-semibold mb-2">Smart Cities</h4>
+                <p className="text-gray-400 text-sm">Urban planning and infrastructure insights</p>
+              </div>
+              <div className="bg-gray-900/50 border border-gray-700/30 rounded-xl p-4 text-center">
+                <div className="flex justify-center mb-2">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h4 className="text-white font-semibold mb-2">AI Training</h4>
+                <p className="text-gray-400 text-sm">Real-world data for autonomous systems</p>
+              </div>
+              <div className="bg-gray-900/50 border border-gray-700/30 rounded-xl p-4 text-center">
+                <div className="flex justify-center mb-2">
+                  <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h4 className="text-white font-semibold mb-2">Analytics</h4>
+                <p className="text-gray-400 text-sm">Location intelligence for businesses</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tips for Success */}
+        <div className="mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Tips for Maximizing Your Rewards</h2>
+          <div className="text-gray-300 leading-relaxed space-y-6 text-lg">
+            <div className="grid gap-4">
+              <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-6">
+                <h3 className="text-white font-semibold mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                  Pro Tips:
+                </h3>
+                <ul className="text-gray-300 space-y-2">
+                  <li>• Keep the app running in the background during your daily commute</li>
+                  <li>• Explore new areas to discover fresh hexes</li>
+                  <li>• Respond to POI verification requests when they appear</li>
+                  <li>• Report road conditions and incidents you encounter</li>
+                  <li>• Refer friends to earn bonus points</li>
+                  <li>• Check your dashboard regularly to track progress</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="mb-12">
+          <div className="bg-gray-900/30 border border-purple-700/50 rounded-xl p-8 text-center">
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to Start Earning?</h3>
+            <p className="text-gray-300 mb-6">
+              Join the CapturGO network and turn your everyday movement into rewards while helping build the future of mobility data.
+            </p>
+            <a 
+              href="https://www.capturgo.com/" 
+              className="inline-flex items-center px-6 py-3 bg-white text-black hover:bg-gray-200 font-semibold rounded-xl transition-colors"
+            >
+              Get Started with CapturGO
+              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </BlogTemplate>
   );
 }

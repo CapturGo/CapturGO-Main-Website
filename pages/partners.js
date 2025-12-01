@@ -138,7 +138,9 @@ export default function Partners() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-black relative overflow-hidden">
+    <>
+    <div className="fixed inset-0 bg-gradient-to-br from-black via-purple-900/20 to-black -z-10"></div>
+    <div className="min-h-screen w-full relative">
       {/* Background Video */}
       <video
         autoPlay
@@ -504,7 +506,7 @@ export default function Partners() {
       </div>
 
       {/* Contact Us Section */}
-      <section className="py-20">
+      <section className="py-20 pb-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left Content */}
@@ -690,5 +692,6 @@ export default function Partners() {
       
       </div> {/* End Content Overlay */}
     </div>
+    </>
   );
 }

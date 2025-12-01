@@ -12,7 +12,7 @@ export default function Blog() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-black">
+    <div className="min-h-screen bg-black">
         <Head>
           <title>Blog - CapturGO | Latest Updates & Insights</title>
           <meta name="description" content="Stay updated with the latest CapturGO news, tutorials, and insights about decentralized location intelligence and blockchain technology." />

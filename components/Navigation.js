@@ -12,6 +12,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [showDiscoverDropdown, setShowDiscoverDropdown] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800 w-full">
@@ -53,21 +54,49 @@ export default function Navigation() {
           
           {/* Centered Navigation - Absolute positioning for perfect centering */}
           <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
-            <div className="flex items-center space-x-8">
-              <Link 
-                href="/#discover" 
-                className="text-gray-300 hover:text-white transition-colors flip-text"
-                data-text="Discover"
+            <div className="flex items-center space-x-12">
+              {/* Discover Dropdown */}
+              <div 
+                className="relative group"
+                onMouseEnter={() => setShowDiscoverDropdown(true)}
+                onMouseLeave={() => setShowDiscoverDropdown(false)}
               >
-                Discover
-              </Link>
-              <Link 
-                href="/#features" 
-                className="text-gray-300 hover:text-white transition-colors flip-text"
-                data-text="Features"
-              >
-                Features
-              </Link>
+                <button className="text-gray-300 hover:text-white transition-colors flex items-center">
+                  <span className="flip-text">Discover</span>
+                  <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {/* Dropdown Menu */}
+                {showDiscoverDropdown && (
+                  <div className="absolute top-full left-0 pt-2 w-48">
+                    <div className="bg-black/95 backdrop-blur-md border border-gray-800 rounded-lg shadow-lg">
+                      <div className="py-2">
+                        <Link 
+                          href="/#discover" 
+                          className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors"
+                        >
+                          Overview
+                        </Link>
+                        <Link 
+                          href="/#features" 
+                          className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors"
+                        >
+                          Features
+                        </Link>
+                        <Link 
+                          href="/#leaderboard" 
+                          className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors"
+                        >
+                          Leaderboard
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
               <Link 
                 href="/partners" 
                 className="text-gray-300 hover:text-white transition-colors flip-text"
@@ -76,11 +105,11 @@ export default function Navigation() {
                 Partners
               </Link>
               <Link 
-                href="/#leaderboard" 
+                href="/blog" 
                 className="text-gray-300 hover:text-white transition-colors flip-text"
-                data-text="Leaderboard"
+                data-text="Blog"
               >
-                Leaderboard
+                Blog
               </Link>
               <Link 
                 href="/#faq" 
@@ -141,22 +170,34 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gray-800 bg-black/95 backdrop-blur-md">
             <div className="flex flex-col space-y-4 px-4">
-              <Link 
-                href="/#discover" 
-                className="text-gray-300 hover:text-white transition-colors flip-text"
-                data-text="Discover"
-                onClick={() => setIsOpen(false)}
-              >
-                Discover
-              </Link>
-              <Link 
-                href="/#features" 
-                className="text-gray-300 hover:text-white transition-colors flip-text"
-                data-text="Features"
-                onClick={() => setIsOpen(false)}
-              >
-                Features
-              </Link>
+              {/* Discover Section */}
+              <div>
+                <div className="text-white font-semibold mb-2">Discover</div>
+                <div className="ml-4 space-y-2">
+                  <Link 
+                    href="/#discover" 
+                    className="block text-gray-300 hover:text-white transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Overview
+                  </Link>
+                  <Link 
+                    href="/#features" 
+                    className="block text-gray-300 hover:text-white transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Features
+                  </Link>
+                  <Link 
+                    href="/#leaderboard" 
+                    className="block text-gray-300 hover:text-white transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Leaderboard
+                  </Link>
+                </div>
+              </div>
+              
               <Link 
                 href="/partners" 
                 className="text-gray-300 hover:text-white transition-colors flip-text"
@@ -166,12 +207,12 @@ export default function Navigation() {
                 Partners
               </Link>
               <Link 
-                href="/#leaderboard" 
+                href="/blog" 
                 className="text-gray-300 hover:text-white transition-colors flip-text"
-                data-text="Leaderboard"
+                data-text="Blog"
                 onClick={() => setIsOpen(false)}
               >
-                Leaderboard
+                Blog
               </Link>
               <Link 
                 href="/#faq" 

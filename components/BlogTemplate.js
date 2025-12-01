@@ -13,7 +13,7 @@ export default function BlogTemplate({
   children 
 }) {
   return (
-    <div className="bg-gradient-to-br from-black via-purple-900/20 to-black">
+    <div className="bg-black">
       <Head>
         <title>{title} - CapturGO Blog</title>
         <meta name="description" content={description} />

@@ -54,7 +54,7 @@ export default function Leaderboard() {
         <h2 className="text-lg sm:text-xl font-semibold text-white">Top 50 Point Holders</h2>
         <div className="mt-3 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
           <p className="text-xs sm:text-sm text-yellow-200 leading-relaxed">
-            <strong>Disclaimer:</strong> No official points have been released. 
+            <strong>Disclaimer:</strong> No official token has been released. 
           </p>
         </div>
       </div>
